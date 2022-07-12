@@ -38,6 +38,7 @@ public class GestorRestaurante {
         ControladorRestaurante c3= new ControladorRestaurante(postres,ped);
         ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);
         //entradas.setVisible(true);
+        confirmacion.setVisible(true);
         //fuerte.setVisible(true);
         //bebidas.setVisible(true);
        // postres.setVisible(true);
@@ -53,7 +54,7 @@ public class GestorRestaurante {
         FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
         ControladorRestaurante cUsuario= new ControladorRestaurante(r1,pDAO);//Camilo
         ControladorRestaurante cUsuario1= new ControladorRestaurante(l1,pDAO);//Camilo
-        menu.setVisible(true);//Camilo
+        //menu.setVisible(true);//Camilo
 //        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
 //         FrmBebidas fBebidas=new FrmBebidas();

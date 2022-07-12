@@ -137,6 +137,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         
     }
+    public ControladorRestaurante(FrmConfirmacion confirmacion,PedidosDAO dao ){
+        objetoVistaConfirmacion = confirmacion;
+        pedDAO= dao;
+        objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
+    }
     public void llenarTablaEntrada(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -396,9 +401,24 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyReleased(KeyEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+       if(e.getSource()==objetoVistaConfirmacion.txtBuscarPedidoconfirmacion){
+           String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+           DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
+            modeloT.addColumn("Numero Pedido");
+            modeloT.addColumn("Descripcion");
+            modeloT.addColumn("Cantidad");
+//            modeloT.addColumn("PAIS");
+            Object [] columna= new Object[3];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                columna[0]= ped.getNumeroPedido();
+                columna[1]=ped.getNombrePedido();
+                columna[2]=ped.getCantidad();
+                modeloT.addRow(columna);
+            }
+       }
+    }  
 }
