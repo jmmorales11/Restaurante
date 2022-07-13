@@ -21,6 +21,7 @@ import vista.FrmEntradas;
 import vista.FrmEscogeTuSabor;
 import vista.FrmFuerte;
 import vista.FrmLogin;
+import vista.FrmMenu;
 import vista.FrmPostre;
 import vista.FrmVisualisarInformacionPedido;
 
@@ -32,19 +33,23 @@ public class GestorRestaurante {
         FrmPostre postres= new FrmPostre();
         FrmConfirmacion confirmacion =new FrmConfirmacion();
         FrmEntradas entradas= new FrmEntradas();
+        FrmMenu menu1= new FrmMenu();
         PedidosDAO ped= new PedidosDAO();
-        ControladorRestaurante c= new ControladorRestaurante(bebidas,ped);       
-        ControladorRestaurante c1= new ControladorRestaurante(fuerte,ped);       
-        ControladorRestaurante c3= new ControladorRestaurante(postres,ped);
-        ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);
-        //entradas.setVisible(true);
-        confirmacion.setVisible(true);
+        ControladorRestaurante c= new ControladorRestaurante(bebidas,ped);//Marley       
+        ControladorRestaurante c1= new ControladorRestaurante(fuerte,ped);//Marley      
+        ControladorRestaurante c3= new ControladorRestaurante(postres,ped);//Marley
+        ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);//Marley
+        ControladorRestaurante c4= new ControladorRestaurante(confirmacion,ped);//Marley
+        
+        menu1.setVisible(true);
+//entradas.setVisible(true);
+        confirmacion.setVisible(false);
         //fuerte.setVisible(true);
-        //bebidas.setVisible(true);
+        bebidas.setVisible(false);
        // postres.setVisible(true);
 
   
-//f1.setVisible(true);
+        //f1.setVisible(true);
         //datoQuemados();//kleber
         FrmRegistrar r1= new FrmRegistrar();//Camilo
         FrmLogin l1= new FrmLogin();
@@ -55,8 +60,8 @@ public class GestorRestaurante {
         ControladorRestaurante cUsuario= new ControladorRestaurante(r1,pDAO);//Camilo
         ControladorRestaurante cUsuario1= new ControladorRestaurante(l1,pDAO);//Camilo
         //menu.setVisible(true);//Camilo
-//        r1.setVisible(true);
-//        r1.setLocationRelativeTo(r1);
+        //        r1.setVisible(true);
+        //        r1.setLocationRelativeTo(r1);
 //         FrmBebidas fBebidas=new FrmBebidas();
 //         FrmConfirmacion fConfirmacion= new FrmConfirmacion();
 //         ControladorRestaurante cRestaurante= new ControladorRestaurante();

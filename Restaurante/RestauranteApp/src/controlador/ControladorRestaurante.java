@@ -82,7 +82,9 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         FrmMenu menu = new FrmMenu();
         jFrameToClose.setVisible(false);
         menu.setVisible(true);
+        
     }
+    
 //Jeimy no tocar 
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
