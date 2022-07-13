@@ -36,8 +36,10 @@ public class PedidosDAO {
         BasicDBObject buscado = new BasicDBObject ("npedido", pedidos);
         DBCursor cursor = objCon.coleccionPedido.find(buscado);
         while(cursor.hasNext()){
-            p1 = new Pedido((String)cursor.curr().get("npedido"), (String)cursor.next().get("nombrePedido"),(int)cursor.next().get("cantidad"));
-            System.out.println("datos: " + p1);
+            //primero se utiliza el next  y luego los curr
+            p1 = new Pedido((String)cursor.next().get("npedido"), 
+                    (String)cursor.curr().get("nombrePedido"),
+                    (int)cursor.curr().get("cantidad"));
             listPe.add(p1);
         }
         return listPe;

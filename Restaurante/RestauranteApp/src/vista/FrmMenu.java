@@ -68,6 +68,11 @@ public class FrmMenu extends javax.swing.JFrame {
         btnBebidas.setBackground(new java.awt.Color(255, 204, 204));
         btnBebidas.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         btnBebidas.setText("Bebidas");
+        btnBebidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBebidasActionPerformed(evt);
+            }
+        });
 
         btnEntrada.setBackground(new java.awt.Color(255, 204, 204));
         btnEntrada.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
@@ -251,6 +256,12 @@ public class FrmMenu extends javax.swing.JFrame {
         perfil.setVisible(true);
         
     }//GEN-LAST:event_perfilActionPerformed
+
+    private void btnBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBebidasActionPerformed
+        FrmBebidas bebidas = new FrmBebidas();
+        this.setVisible(false);
+        bebidas.setVisible(true);  
+    }//GEN-LAST:event_btnBebidasActionPerformed
 
     /**
      * @param args the command line arguments
