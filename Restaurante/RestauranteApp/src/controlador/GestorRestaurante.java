@@ -19,7 +19,9 @@ import modelo.PlatoDAO;
 import vista.FrmBebidas;
 import vista.FrmConfirmacion;
 import vista.FrmEntradas;
+import vista.FrmEscogeTuSabor;
 import vista.FrmFuerte;
+import vista.FrmLogin;
 import vista.FrmPostre;
 import vista.FrmVisualisarInformacionPedido;
 
@@ -37,12 +39,14 @@ public class GestorRestaurante {
 //        ControladorRestaurante c3= new ControladorRestaurante(postres,ped);
 //        ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);
         //entradas.setVisible(true);
+        //confirmacion.setVisible(true);
         //fuerte.setVisible(true);
         //bebidas.setVisible(true);
        // postres.setVisible(true);
 
   
 //f1.setVisible(true);
+
         
 //        FrmRegistrar r1= new FrmRegistrar();
 //        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
@@ -50,6 +54,20 @@ public class GestorRestaurante {
 //        UsuarioDAO pDAO = new UsuarioDAO();
 //        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
 //        r1.setVisible(true);
+
+        FrmRegistrar r1= new FrmRegistrar();//Camilo
+        FrmLogin l1= new FrmLogin();
+        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
+        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
+        UsuarioDAO pDAO = new UsuarioDAO();
+        FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
+
+        ControladorRestaurante c4= new ControladorRestaurante(r1,pDAO);//Camilo
+        ControladorRestaurante c5= new ControladorRestaurante(l1,pDAO);//Camilo
+        ControladorRestaurante c6= new ControladorRestaurante(menu);//Camilo
+        menu.setVisible(true);//Camilo
+
+
 //        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
 //         FrmBebidas fBebidas=new FrmBebidas();

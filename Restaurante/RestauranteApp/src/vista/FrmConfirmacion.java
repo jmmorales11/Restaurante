@@ -32,7 +32,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jlPedidos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtPedidoconfirmacion = new javax.swing.JTextField();
+        txtBuscarPedidoconfirmacion = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
@@ -88,7 +88,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
                             .addGap(39, 39, 39)
                             .addComponent(jLabel2)
                             .addGap(18, 18, 18)
-                            .addComponent(txtPedidoconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscarPedidoconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -119,7 +119,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtPedidoconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscarPedidoconfirmacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -196,7 +196,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jlPedidos;
+    public javax.swing.JTextField txtBuscarPedidoconfirmacion;
     public javax.swing.JTextField txtNombreCliente;
-    public javax.swing.JTextField txtPedidoconfirmacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,6 +23,11 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String id, String contraseña) {
+        this.id = id;
+        this.contraseña = contraseña;
+    }
+
     public Usuario(String nombre, String apellido, String id, String contraseña, String email, String numeroCelular, String dia, String mes, String año) {
         this.nombre = nombre;
         this.apellido = apellido;

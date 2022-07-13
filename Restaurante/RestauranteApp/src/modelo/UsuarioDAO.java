@@ -6,6 +6,7 @@
 package modelo;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
@@ -27,5 +28,18 @@ public class UsuarioDAO {
         documento.put("año", p.getAño());
         objCon.coleccion.insert(documento);
     }
-   
+   public boolean validarLogin(String id,String contraseña){
+       Conexion objCon = new Conexion();
+       Usuario aux = new Usuario();
+       DBCursor cursor = objCon.coleccion.find();
+       boolean abrir= false;
+       while (cursor.hasNext()){
+           aux = new Usuario((String) cursor.next().get("id"),(String)cursor.curr().get("contraseña"));
+           if (aux.getId().equals(id) && aux.getContraseña().equals(contraseña)){
+               abrir = true;
+           }
+       }
+       return abrir;
+   }
+    
 }

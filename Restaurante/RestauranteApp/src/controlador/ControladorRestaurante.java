@@ -14,6 +14,14 @@ import vista.FrmBebidas;
 import vista.FrmEntradas;
 import vista.FrmFuerte;
 import vista.FrmPostre;
+import javax.swing.JFrame;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
+import vista.FrmEscogeTuSabor;
+import vista.FrmLogin;
+import vista.FrmMenu;
+import vista.FrmPerfil;
+import vista.FrmRegistrar;
 
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
@@ -23,6 +31,64 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
     FrmConfirmacion objetoVistaConfirmacion= new FrmConfirmacion();
+    UsuarioDAO objetoDAO= new UsuarioDAO();
+    FrmRegistrar objetoRegistrar=new FrmRegistrar();
+    FrmLogin objetoLogin = new FrmLogin();
+    FrmPerfil objetoPerfil = new FrmPerfil();
+    FrmMenu menu = new FrmMenu();
+    FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
+    Usuario objetoUsuario= new Usuario();
+    
+    //Camilo
+    public ControladorRestaurante(FrmEscogeTuSabor vista){
+        menu2= vista;
+        menu2.miRegistrarse.addActionListener(this);
+        menu2.miLogin.addActionListener(this);
+    }
+    public ControladorRestaurante(FrmRegistrar vista,UsuarioDAO dao){
+        objetoRegistrar= vista;
+        objetoDAO= dao;
+        objetoRegistrar.btnRegistrar.addActionListener(this);
+        objetoRegistrar.btnLogin.addActionListener(this);
+        objetoRegistrar.txtNombre.addKeyListener(this);
+        objetoRegistrar.txtApellido.addKeyListener(this);
+        objetoRegistrar.txtID.addKeyListener(this);
+        objetoRegistrar.txtContraseña.addKeyListener(this);
+        objetoRegistrar.txtRepetirContraseña.addKeyListener(this);
+        objetoRegistrar.txtEmail.addKeyListener(this);
+        objetoRegistrar.txtNumeroCelular.addKeyListener(this);
+        objetoRegistrar.txtDia.addKeyListener(this);
+        objetoRegistrar.txtMes.addKeyListener(this);
+        objetoRegistrar.txtAño.addKeyListener(this);
+    }
+    public ControladorRestaurante(FrmLogin vista,UsuarioDAO dao){
+        objetoLogin = vista;
+        objetoDAO= dao;
+        objetoLogin.btnLogin.addActionListener(this);
+        objetoLogin.btnCancelar.addActionListener(this);
+        objetoLogin.txtID.addKeyListener(this);
+        objetoLogin.txtContraseña.addKeyListener(this);
+    }
+
+    public ControladorRestaurante(FrmPerfil vista,UsuarioDAO dao){
+        objetoPerfil = vista;
+        objetoDAO= dao;
+        objetoPerfil.btnEditar.addActionListener(this);
+        objetoPerfil.btnModificar.addActionListener(this);
+        objetoPerfil.txtNombre.addKeyListener(this);
+        objetoPerfil.txtApellido.addKeyListener(this);
+        objetoPerfil.txtContraseña.addKeyListener(this);
+        objetoPerfil.txtEmail.addKeyListener(this);
+        objetoPerfil.txtNumeroCelular.addKeyListener(this);
+        objetoPerfil.txtDia.addKeyListener(this);
+        objetoPerfil.txtMes.addKeyListener(this);
+        objetoPerfil.txtAño.addKeyListener(this);
+    }
+    public static void goToMainScreen(JFrame jFrameToClose){
+        FrmMenu menu = new FrmMenu();
+        jFrameToClose.setVisible(false);
+        menu.setVisible(true);
+    }
 //Jeimy no tocar 
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
@@ -76,6 +142,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaEntradas.txtCantidadEmpanadasMorocho.addKeyListener(this);
         objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         
+    }
+    public ControladorRestaurante(FrmConfirmacion confirmacion,PedidosDAO dao ){
+        objetoVistaConfirmacion = confirmacion;
+        pedDAO= dao;
+        objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
     }
     public void llenarTablaEntrada(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
@@ -213,6 +284,38 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     }
         @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==menu2.miLogin){
+            menu2.setVisible(false);
+            objetoLogin.setVisible(true);
+        }
+        if(e.getSource()==menu2.miRegistrarse){
+            menu2.setVisible(false);
+            objetoRegistrar.setVisible(true);
+        }
+        if(e.getSource()==objetoRegistrar.btnRegistrar){
+                String nombre= objetoRegistrar.txtNombre.getText();
+                String apellido= objetoRegistrar.txtApellido.getText();
+                String id= objetoRegistrar.txtID.getText();
+                String contraseña= objetoRegistrar.txtContraseña.getText();
+                String email= objetoRegistrar.txtEmail.getText();
+                String numeroCelular= objetoRegistrar.txtNumeroCelular.getText();
+                String dia= objetoRegistrar.txtDia.getText();
+                String mes= objetoRegistrar.txtMes.getText();
+                String año= objetoRegistrar.txtAño.getText();
+                Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
+                objetoDAO.insertarUsuario(objetoUsuario);
+        }
+        if(e.getSource()== objetoLogin.btnLogin){
+                String id = "";
+                String contraseña = "";
+                id=objetoLogin.txtID.getText();
+                contraseña=objetoLogin.txtContraseña.getText();
+                if(objetoDAO.validarLogin(id, contraseña)){
+                    objetoLogin.setVisible(false);
+                    menu.setVisible(true);
+                }
+            }
+            
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
             if(objetoVistaBebidas.rbCoca.getLabel().equalsIgnoreCase("Coca cola")){ 
@@ -313,9 +416,24 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyReleased(KeyEvent e) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+       if(e.getSource()==objetoVistaConfirmacion.txtBuscarPedidoconfirmacion){
+           String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+           DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
+            modeloT.addColumn("Numero Pedido");
+            modeloT.addColumn("Descripcion");
+            modeloT.addColumn("Cantidad");
+//            modeloT.addColumn("PAIS");
+            Object [] columna= new Object[3];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                columna[0]= ped.getNumeroPedido();
+                columna[1]=ped.getNombrePedido();
+                columna[2]=ped.getCantidad();
+                modeloT.addRow(columna);
+            }
+       }
+    }  
 }

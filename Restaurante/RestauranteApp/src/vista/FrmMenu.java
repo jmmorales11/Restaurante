@@ -47,6 +47,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jMSobre = new javax.swing.JMenu();
         miVersion = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        JMPerfil = new javax.swing.JMenu();
+        perfil = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,6 +204,19 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu1.setText("Historial");
         jmenuBarRestaurante.add(jMenu1);
 
+        JMPerfil.setText("Perfil");
+
+        perfil.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        perfil.setText("Información");
+        perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfilActionPerformed(evt);
+            }
+        });
+        JMPerfil.add(perfil);
+
+        jmenuBarRestaurante.add(JMPerfil);
+
         setJMenuBar(jmenuBarRestaurante);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,6 +244,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private void miPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPreguntasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miPreguntasActionPerformed
+
+    private void perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilActionPerformed
+        FrmPerfil perfil = new FrmPerfil();
+        this.setVisible(false);
+        perfil.setVisible(true);
+        
+    }//GEN-LAST:event_perfilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +288,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JMPerfil;
     private javax.swing.JButton btnBebidas;
     private javax.swing.JButton btnEntrada;
     private javax.swing.JButton btnFuerte;
@@ -286,5 +309,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem miPreguntas;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JMenuItem miVersion;
+    private javax.swing.JMenuItem perfil;
     // End of variables declaration//GEN-END:variables
 }

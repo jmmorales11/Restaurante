@@ -1,7 +1,6 @@
 
 package modelo;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import java.util.ArrayList;
 import java.util.*;
