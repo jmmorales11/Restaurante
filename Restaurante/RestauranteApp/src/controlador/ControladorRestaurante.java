@@ -39,6 +39,12 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
     Usuario objetoUsuario= new Usuario();
     
+    //Camilo
+    public ControladorRestaurante(FrmEscogeTuSabor vista){
+        menu2= vista;
+        menu2.miRegistrarse.addActionListener(this);
+        menu2.miLogin.addActionListener(this);
+    }
     public ControladorRestaurante(FrmRegistrar vista,UsuarioDAO dao){
         objetoRegistrar= vista;
         objetoDAO= dao;
@@ -280,6 +286,14 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     }
         @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==menu2.miLogin){
+            menu2.setVisible(false);
+            objetoLogin.setVisible(true);
+        }
+        if(e.getSource()==menu2.miRegistrarse){
+            menu2.setVisible(false);
+            objetoRegistrar.setVisible(true);
+        }
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -293,7 +307,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
                 objetoDAO.insertarUsuario(objetoUsuario);
         }
-            if(e.getSource()== objetoLogin.btnLogin){
+        if(e.getSource()== objetoLogin.btnLogin){
                 String id = "";
                 String contraseña = "";
                 id=objetoLogin.txtID.getText();
@@ -303,6 +317,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                     menu.setVisible(true);
                 }
             }
+            
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
             if(objetoVistaBebidas.rbCoca.getLabel().equalsIgnoreCase("Coca cola")){ 

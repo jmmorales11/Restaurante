@@ -150,7 +150,7 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuItem miLogin;
-    private javax.swing.JMenuItem miRegistrarse;
+    public javax.swing.JMenuItem miLogin;
+    public javax.swing.JMenuItem miRegistrarse;
     // End of variables declaration//GEN-END:variables
 }
