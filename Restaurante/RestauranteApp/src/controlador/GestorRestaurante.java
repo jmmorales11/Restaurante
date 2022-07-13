@@ -37,6 +37,24 @@ public class GestorRestaurante {
         
         ControladorRestaurante c2= new ControladorRestaurante(l1,dao);
 
+        FrmBebidas bebidas= new FrmBebidas();
+        FrmFuerte fuerte= new FrmFuerte();
+        FrmPostre postres= new FrmPostre();
+        FrmConfirmacion confirmacion =new FrmConfirmacion();
+        FrmEntradas entradas= new FrmEntradas();
+        FrmMenu menu2= new FrmMenu();
+        PedidosDAO ped= new PedidosDAO();
+        ControladorRestaurante c= new ControladorRestaurante(bebidas,ped);//Marley       
+        ControladorRestaurante c1= new ControladorRestaurante(fuerte,ped);//Marley      
+        ControladorRestaurante c4= new ControladorRestaurante(postres,ped);//Marley
+        ControladorRestaurante c5= new ControladorRestaurante(entradas,ped);//Marley
+        ControladorRestaurante c6= new ControladorRestaurante(confirmacion,ped);//Marley
+        bebidas.setVisible(true);
+        confirmacion.setVisible(true);
         menu1.setVisible(true);
+     }
+    
+
+       
     }
-}
+
