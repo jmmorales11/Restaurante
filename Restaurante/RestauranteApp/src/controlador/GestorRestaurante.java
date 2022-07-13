@@ -29,12 +29,12 @@ import vista.FrmVisualisarInformacionPedido;
 public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
-        FrmRegistrar r1 = new FrmRegistrar();
+        
         FrmLogin l1 = new FrmLogin();
         FrmEscogeTuSabor menu1= new FrmEscogeTuSabor();
         UsuarioDAO dao = new UsuarioDAO();
         ControladorRestaurante c3= new ControladorRestaurante(menu1);
-        ControladorRestaurante c1= new ControladorRestaurante(r1,dao);
+        
         ControladorRestaurante c2= new ControladorRestaurante(l1,dao);
 
         menu1.setVisible(true);
