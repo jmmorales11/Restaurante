@@ -9,6 +9,8 @@ public class Conexion {
         DB baseDatos;
     DBCollection coleccion;
     DBCollection coleccionPedido;
+    DBCollection coleccionPlato;
+    DBCollection coleccionIngre;
     
     //Constructor
     public Conexion(){
@@ -16,6 +18,8 @@ public class Conexion {
         baseDatos= mongo.getDB("Restaurante");
         coleccion= baseDatos.getCollection("Usuario");
         coleccionPedido=baseDatos.getCollection("Pedidos");
+        coleccionPlato=baseDatos.getCollection("Plato");
+        coleccionIngre=baseDatos.getCollection("Ingrediente");
         System.out.println("Conexion aBD ok");
     }
 }
