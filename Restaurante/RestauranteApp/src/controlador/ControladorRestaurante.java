@@ -32,7 +32,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmPostre objetoVistaPostre= new FrmPostre();
     FrmConfirmacion objetoVistaConfirmacion= new FrmConfirmacion();
     UsuarioDAO objetoDAO= new UsuarioDAO();
-    FrmRegistrar objetoRegistrar=new FrmRegistrar();
+    FrmRegistrar objetoRegistrar;
     FrmLogin objetoLogin = new FrmLogin();
     FrmPerfil objetoPerfil = new FrmPerfil();
     FrmMenu menu = new FrmMenu();
@@ -292,6 +292,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         }
         if(e.getSource()==menu2.miRegistrarse){
             menu2.setVisible(false);
+            UsuarioDAO dao = new UsuarioDAO();
+            FrmRegistrar r1 = new FrmRegistrar();
+            ControladorRestaurante c1= new ControladorRestaurante(r1,dao);
+            objetoRegistrar = r1;
             objetoRegistrar.setVisible(true);
         }
         if(e.getSource()==objetoRegistrar.btnRegistrar){
