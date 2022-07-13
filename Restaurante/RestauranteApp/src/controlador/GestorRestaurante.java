@@ -52,9 +52,12 @@ public class GestorRestaurante {
         ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
         UsuarioDAO pDAO = new UsuarioDAO();
         FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
-        ControladorRestaurante cUsuario= new ControladorRestaurante(r1,pDAO);//Camilo
-        ControladorRestaurante cUsuario1= new ControladorRestaurante(l1,pDAO);//Camilo
-        //menu.setVisible(true);//Camilo
+
+        ControladorRestaurante c4= new ControladorRestaurante(r1,pDAO);//Camilo
+        ControladorRestaurante c5= new ControladorRestaurante(l1,pDAO);//Camilo
+        ControladorRestaurante c6= new ControladorRestaurante(menu);//Camilo
+        menu.setVisible(true);//Camilo
+
 //        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
 //         FrmBebidas fBebidas=new FrmBebidas();
