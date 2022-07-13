@@ -29,7 +29,15 @@ import vista.FrmVisualisarInformacionPedido;
 public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
+        FrmRegistrar r1 = new FrmRegistrar();
+        FrmLogin l1 = new FrmLogin();
+        FrmEscogeTuSabor menu1= new FrmEscogeTuSabor();
+        UsuarioDAO dao = new UsuarioDAO();
+        ControladorRestaurante c3= new ControladorRestaurante(menu1);
+        ControladorRestaurante c1= new ControladorRestaurante(r1,dao);
+        ControladorRestaurante c2= new ControladorRestaurante(l1,dao);
 
+<<<<<<< HEAD
         FrmBebidas bebidas= new FrmBebidas();
         FrmFuerte fuerte= new FrmFuerte();
         FrmPostre postres= new FrmPostre();
@@ -48,4 +56,8 @@ public class GestorRestaurante {
      }
     
 
+=======
+        menu1.setVisible(true);
+    }
+>>>>>>> 02a5e0a599eadfd15d3b456908b06f9f0a41e678
 }
