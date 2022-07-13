@@ -29,7 +29,6 @@ import vista.FrmVisualisarInformacionPedido;
 public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
-<<<<<<< HEAD
         FrmBebidas bebidas= new FrmBebidas();
         FrmFuerte fuerte= new FrmFuerte();
         FrmPostre postres= new FrmPostre();
@@ -45,8 +44,8 @@ public class GestorRestaurante {
         
         menu1.setVisible(true);
 //entradas.setVisible(true);
-        confirmacion.setVisible(false);
-=======
+        confirmacion.setVisible(true);
+
 //        FrmBebidas bebidas= new FrmBebidas();
 //        FrmFuerte fuerte= new FrmFuerte();
 //        FrmPostre postres= new FrmPostre();
@@ -59,16 +58,16 @@ public class GestorRestaurante {
 //        ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);
         //entradas.setVisible(true);
         //confirmacion.setVisible(true);
->>>>>>> cc5ebd3418f8f5cb7147424fcbf051e1b3df896d
+
         //fuerte.setVisible(true);
-        bebidas.setVisible(false);
+        bebidas.setVisible(true);
        // postres.setVisible(true);
 
   
-<<<<<<< HEAD
+
         //f1.setVisible(true);
         //datoQuemados();//kleber
-=======
+
 //f1.setVisible(true);
 
         
@@ -79,30 +78,30 @@ public class GestorRestaurante {
 //        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
 //        r1.setVisible(true);
 
->>>>>>> cc5ebd3418f8f5cb7147424fcbf051e1b3df896d
-        FrmRegistrar r1= new FrmRegistrar();//Camilo
-        FrmLogin l1= new FrmLogin();
-        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
-        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
-        UsuarioDAO pDAO = new UsuarioDAO();
-        FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
-<<<<<<< HEAD
-        ControladorRestaurante cUsuario= new ControladorRestaurante(r1,pDAO);//Camilo
-        ControladorRestaurante cUsuario1= new ControladorRestaurante(l1,pDAO);//Camilo
+
+//        FrmRegistrar r1= new FrmRegistrar();//Camilo
+//        FrmLogin l1= new FrmLogin();
+//        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
+//        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
+//        UsuarioDAO pDAO = new UsuarioDAO();
+//        FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
+//
+//        ControladorRestaurante cUsuario= new ControladorRestaurante(r1,pDAO);//Camilo
+//        ControladorRestaurante cUsuario1= new ControladorRestaurante(l1,pDAO);//Camilo
         //menu.setVisible(true);//Camilo
         //        r1.setVisible(true);
         //        r1.setLocationRelativeTo(r1);
-=======
 
-        ControladorRestaurante c4= new ControladorRestaurante(r1,pDAO);//Camilo
-        ControladorRestaurante c5= new ControladorRestaurante(l1,pDAO);//Camilo
-        ControladorRestaurante c6= new ControladorRestaurante(menu);//Camilo
-        menu.setVisible(true);//Camilo
+//
+//       // ControladorRestaurante c4= new ControladorRestaurante(r1,pDAO);//Camilo
+//        ControladorRestaurante c5= new ControladorRestaurante(l1,pDAO);//Camilo
+//        ControladorRestaurante c6= new ControladorRestaurante(menu);//Camilo
+//        menu.setVisible(true);//Camilo
 
 
 //        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
->>>>>>> cc5ebd3418f8f5cb7147424fcbf051e1b3df896d
+
 //         FrmBebidas fBebidas=new FrmBebidas();
 //         FrmConfirmacion fConfirmacion= new FrmConfirmacion();
 //         ControladorRestaurante cRestaurante= new ControladorRestaurante();
