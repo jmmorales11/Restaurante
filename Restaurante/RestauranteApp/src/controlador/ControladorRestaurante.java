@@ -413,7 +413,42 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String id= objetoRegistrar.txtID.getText();
+        int lenght1 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght1<10){
+                objetoRegistrar.txtID.setEditable(true);
+            }else{
+                objetoRegistrar.txtID.setEditable(false);
+            }
+        }
+        String numeroCelular1= objetoRegistrar.txtNumeroCelular.getText();
+        int lenght2 = numeroCelular1.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght2<10){
+                objetoRegistrar.txtNumeroCelular.setEditable(true);
+            }else{
+                objetoRegistrar.txtNumeroCelular.setEditable(false);
+            }
+        }
+        String numeroCelular2= objetoPerfil.txtNumeroCelular.getText();
+        int lenght3 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght3<10){
+                objetoPerfil.txtNumeroCelular.setEditable(true);
+            }else{
+                objetoPerfil.txtNumeroCelular.setEditable(false);
+            }
+        }
+        String id2= objetoRegistrar.txtID.getText();
+        int lenght4 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght1<10){
+                objetoRegistrar.txtID.setEditable(true);
+            }else{
+                objetoRegistrar.txtID.setEditable(false);
+            }
+        }
     }
 
     @Override

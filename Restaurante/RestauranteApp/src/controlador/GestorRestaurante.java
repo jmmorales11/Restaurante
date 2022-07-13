@@ -73,11 +73,11 @@ public class GestorRestaurante {
 //f1.setVisible(true);
 
         
-//        FrmRegistrar r1= new FrmRegistrar();
-//        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
-//        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
-//        UsuarioDAO pDAO = new UsuarioDAO();
-//        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
+        FrmRegistrar r1= new FrmRegistrar();
+        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
+        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
+        UsuarioDAO pDAO = new UsuarioDAO();
+        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
 //        r1.setVisible(true);
 
 
@@ -113,7 +113,7 @@ public class GestorRestaurante {
 //        menu.setVisible(true);//Camilo
 
 
-//        r1.setVisible(true);
+        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
 
 //         FrmBebidas fBebidas=new FrmBebidas();
