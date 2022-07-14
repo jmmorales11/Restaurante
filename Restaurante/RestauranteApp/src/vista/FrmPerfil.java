@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
 
-import controlador.ControladorUsuario;
 
-/**
- *
- * @author camilo
- */
 public class FrmPerfil extends javax.swing.JFrame {
 
     /**
@@ -242,7 +234,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        ControladorUsuario.goToMainScreen(this);
+        
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**

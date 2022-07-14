@@ -26,7 +26,7 @@ import vista.FrmRegistrar;
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
     PedidosDAO pedDAO= new PedidosDAO();
-    FrmBebidas objetoVistaBebidas= new FrmBebidas();
+    FrmBebidas objetoVistaBebidas;
     FrmEntradas objetoVistaEntradas= new FrmEntradas();
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
@@ -84,14 +84,16 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoPerfil.txtMes.addKeyListener(this);
         objetoPerfil.txtAño.addKeyListener(this);
     }
-    public static void goToMainScreen(JFrame jFrameToClose){
-        FrmMenu menu = new FrmMenu();
-        jFrameToClose.setVisible(false);
-        menu.setVisible(true);
-        
-    }
     
 //Jeimy no tocar 
+    public  ControladorRestaurante(FrmMenu menu1 ){
+        menu= menu1;
+        menu.btnBebidas.addActionListener(this);
+        menu.btnEntrada.addActionListener(this);
+        menu.btnFuerte.addActionListener(this);
+        menu.btnPostre.addActionListener(this);
+        
+    }
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
         pedDAO= dao;
@@ -298,6 +300,14 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoRegistrar = r1;
             objetoRegistrar.setVisible(true);
         }
+        if(e.getSource()==menu.btnBebidas){
+            menu.setVisible(false);
+            FrmBebidas b1= new FrmBebidas();
+            PedidosDAO ped= new PedidosDAO();
+            ControladorRestaurante c2= new ControladorRestaurante(b1,ped);
+            objetoVistaBebidas=b1;
+            objetoVistaBebidas.setVisible(true);    
+        } 
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -312,16 +322,16 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 objetoDAO.insertarUsuario(objetoUsuario);
         }
         if(e.getSource()== objetoLogin.btnLogin){
-                String id = "";
-                String contraseña = "";
-                id=objetoLogin.txtID.getText();
-                contraseña=objetoLogin.txtContraseña.getText();
-                if(objetoDAO.validarLogin(id, contraseña)){
-                    objetoLogin.setVisible(false);
-                    menu.setVisible(true);
-                }
+            String id = "";
+            String contraseña = "";
+            id=objetoLogin.txtID.getText();
+            contraseña=objetoLogin.txtContraseña.getText();
+            if(objetoDAO.validarLogin(id, contraseña)){
+                objetoLogin.setVisible(false);
+                menu.setVisible(true);
             }
-            
+        }
+         
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
             if(objetoVistaBebidas.rbCoca.getLabel().equalsIgnoreCase("Coca cola")){ 
@@ -342,7 +352,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad));
                 pedDAO.insertarPedidos(objPed);
             }
-
         }
         if(e.getSource()==objetoVistaPostre.btnAgregarPostre){
             String numPedido=objetoVistaPostre.txtPedidoPostre.getText();
