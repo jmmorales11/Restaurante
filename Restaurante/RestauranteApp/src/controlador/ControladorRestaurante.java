@@ -1,4 +1,5 @@
-
+//Repositorio
+//Creo que no da errores 
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -26,13 +27,13 @@ import vista.FrmRegistrar;
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
     PedidosDAO pedDAO= new PedidosDAO();
-    FrmBebidas objetoVistaBebidas;
+    FrmBebidas objetoVistaBebidas=new FrmBebidas();
     FrmEntradas objetoVistaEntradas= new FrmEntradas();
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
     FrmConfirmacion objetoVistaConfirmacion= new FrmConfirmacion();
     UsuarioDAO objetoDAO= new UsuarioDAO();
-    FrmRegistrar objetoRegistrar;
+    FrmRegistrar objetoRegistrar =new FrmRegistrar();
     FrmLogin objetoLogin = new FrmLogin();
     FrmPerfil objetoPerfil = new FrmPerfil();
     FrmMenu menu = new FrmMenu();
@@ -86,14 +87,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     }
     
 //Jeimy no tocar 
-    public  ControladorRestaurante(FrmMenu menu1 ){
-        menu= menu1;
-        menu.btnBebidas.addActionListener(this);
-        menu.btnEntrada.addActionListener(this);
-        menu.btnFuerte.addActionListener(this);
-        menu.btnPostre.addActionListener(this);
-        
-    }
+//    public  ControladorRestaurante(FrmMenu menu1 ){
+//        menu= menu1;
+//        menu.btnBebidas.addActionListener(this);
+//        
+//    }
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
         pedDAO= dao;
@@ -294,20 +292,13 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         }
         if(e.getSource()==menu2.miRegistrarse){
             menu2.setVisible(false);
-            UsuarioDAO dao = new UsuarioDAO();
-            FrmRegistrar r1 = new FrmRegistrar();
-            ControladorRestaurante c1= new ControladorRestaurante(r1,dao);
-            objetoRegistrar = r1;
+//            UsuarioDAO dao = new UsuarioDAO();
+//            FrmRegistrar r1 = new FrmRegistrar();
+//            ControladorRestaurante c1= new ControladorRestaurante(r1,dao);
+//            objetoRegistrar = r1;
             objetoRegistrar.setVisible(true);
         }
-        if(e.getSource()==menu.btnBebidas){
-            menu.setVisible(false);
-            FrmBebidas b1= new FrmBebidas();
-            PedidosDAO ped= new PedidosDAO();
-            ControladorRestaurante c2= new ControladorRestaurante(b1,ped);
-            objetoVistaBebidas=b1;
-            objetoVistaBebidas.setVisible(true);    
-        } 
+
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -322,16 +313,16 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 objetoDAO.insertarUsuario(objetoUsuario);
         }
         if(e.getSource()== objetoLogin.btnLogin){
-            String id = "";
-            String contraseña = "";
-            id=objetoLogin.txtID.getText();
-            contraseña=objetoLogin.txtContraseña.getText();
-            if(objetoDAO.validarLogin(id, contraseña)){
-                objetoLogin.setVisible(false);
-                menu.setVisible(true);
+                String id = "";
+                String contraseña = "";
+                id=objetoLogin.txtID.getText();
+                contraseña=objetoLogin.txtContraseña.getText();
+                if(objetoDAO.validarLogin(id, contraseña)){
+                    objetoLogin.setVisible(false);
+                    menu.setVisible(true);
+                }
             }
-        }
-         
+            
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
             if(objetoVistaBebidas.rbCoca.getLabel().equalsIgnoreCase("Coca cola")){ 
@@ -352,6 +343,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad));
                 pedDAO.insertarPedidos(objPed);
             }
+
         }
         if(e.getSource()==objetoVistaPostre.btnAgregarPostre){
             String numPedido=objetoVistaPostre.txtPedidoPostre.getText();
@@ -426,42 +418,42 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        String id= objetoRegistrar.txtID.getText();
-        int lenght1 = id.length();
-        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
-            if (lenght1<10){
-                objetoRegistrar.txtID.setEditable(true);
-            }else{
-                objetoRegistrar.txtID.setEditable(false);
-            }
-        }
-        String numeroCelular1= objetoRegistrar.txtNumeroCelular.getText();
-        int lenght2 = numeroCelular1.length();
-        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
-            if (lenght2<10){
-                objetoRegistrar.txtNumeroCelular.setEditable(true);
-            }else{
-                objetoRegistrar.txtNumeroCelular.setEditable(false);
-            }
-        }
-        String numeroCelular2= objetoPerfil.txtNumeroCelular.getText();
-        int lenght3 = id.length();
-        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
-            if (lenght3<10){
-                objetoPerfil.txtNumeroCelular.setEditable(true);
-            }else{
-                objetoPerfil.txtNumeroCelular.setEditable(false);
-            }
-        }
-        String id2= objetoRegistrar.txtID.getText();
-        int lenght4 = id.length();
-        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
-            if (lenght1<10){
-                objetoRegistrar.txtID.setEditable(true);
-            }else{
-                objetoRegistrar.txtID.setEditable(false);
-            }
-        }
+//        String id= objetoRegistrar.txtID.getText();
+//        int lenght1 = id.length();
+//        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+//            if (lenght1<10){
+//                objetoRegistrar.txtID.setEditable(true);
+//            }else{
+//                objetoRegistrar.txtID.setEditable(false);
+//            }
+//        }
+//        String numeroCelular1= objetoRegistrar.txtNumeroCelular.getText();
+//        int lenght2 = numeroCelular1.length();
+//        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+//            if (lenght2<10){
+//                objetoRegistrar.txtNumeroCelular.setEditable(true);
+//            }else{
+//                objetoRegistrar.txtNumeroCelular.setEditable(false);
+//            }
+//        }
+//        String numeroCelular2= objetoPerfil.txtNumeroCelular.getText();
+//        int lenght3 = id.length();
+//        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+//            if (lenght3<10){
+//                objetoPerfil.txtNumeroCelular.setEditable(true);
+//            }else{
+//                objetoPerfil.txtNumeroCelular.setEditable(false);
+//            }
+//        }
+//        String id2= objetoRegistrar.txtID.getText();
+//        int lenght4 = id.length();
+//        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+//            if (lenght1<10){
+//                objetoRegistrar.txtID.setEditable(true);
+//            }else{
+//                objetoRegistrar.txtID.setEditable(false);
+//            }
+//        }
     }
 
     @Override

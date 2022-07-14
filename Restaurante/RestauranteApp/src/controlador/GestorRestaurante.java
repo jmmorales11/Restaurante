@@ -27,30 +27,17 @@ import vista.FrmPostre;
 import vista.FrmVisualisarInformacionPedido;
 
 public class GestorRestaurante {
-    //Camilo 
      public static void main(String args[]){
-<<<<<<< HEAD
-//FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
-//ControladorRestaurante c3= new ControladorRestaurante(m2);
-        FrmMenu m= new FrmMenu();
-        ControladorRestaurante c3= new ControladorRestaurante(m);
-        m.setVisible(true);
-
+        FrmLogin lo= new FrmLogin();
+        FrmRegistrar re= new FrmRegistrar();
+        
+        PedidosDAO ped= new PedidosDAO();
+        
+        UsuarioDAO usu= new UsuarioDAO();
+        FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
+        ControladorRestaurante c3= new ControladorRestaurante(lo,usu);
+        lo.setVisible(true);
+        
      }
 }
-=======
 
-//        
-
-     }
-    
-
-
-
-    }
-
-       
-    
-
-
->>>>>>> ef897b01fb97b63061266e67e9fe5aae3146438c
