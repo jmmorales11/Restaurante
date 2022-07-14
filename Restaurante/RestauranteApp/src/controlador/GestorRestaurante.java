@@ -37,7 +37,7 @@ public class GestorRestaurante {
         FrmEntradas entradas= new FrmEntradas();
         FrmMenu menu1= new FrmMenu();
         PedidosDAO ped= new PedidosDAO();
-        ControladorRestaurante c= new ControladorRestaurante(bebidas,ped);//Marley       
+//        ControladorRestaurante c= new ControladorRestaurante(bebidas,ped);//Marley       
         ControladorRestaurante c1= new ControladorRestaurante(fuerte,ped);//Marley      
         ControladorRestaurante c3= new ControladorRestaurante(postres,ped);//Marley
         ControladorRestaurante c2= new ControladorRestaurante(entradas,ped);//Marley
@@ -72,12 +72,12 @@ public class GestorRestaurante {
         //datoQuemados();//kleber
 //f1.setVisible(true);
 
-        
-        FrmRegistrar r1= new FrmRegistrar();
-        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
-        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
-        UsuarioDAO pDAO = new UsuarioDAO();
-        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
+//        
+//        FrmRegistrar r1= new FrmRegistrar();
+//        FrmVisualisarInformacionPedido rv = new FrmVisualisarInformacionPedido();//kleber
+//        ControladorVisualisarIngredientes cVerin =new ControladorVisualisarIngredientes(rv);//kleber
+//        UsuarioDAO pDAO = new UsuarioDAO();
+//        ControladorUsuario cUsuario= new ControladorUsuario(r1,pDAO);
 //        r1.setVisible(true);
 
 
@@ -113,7 +113,7 @@ public class GestorRestaurante {
 //        menu.setVisible(true);//Camilo
 
 
-        r1.setVisible(true);
+//        r1.setVisible(true);
 //        r1.setLocationRelativeTo(r1);
 
 //         FrmBebidas fBebidas=new FrmBebidas();
