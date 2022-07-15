@@ -91,11 +91,15 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     }
     
 //Jeimy no tocar 
-//    public  ControladorRestaurante(FrmMenu menu1 ){
-//        menu= menu1;
-//        menu.btnBebidas.addActionListener(this);
-//        
-//    }
+    public  ControladorRestaurante(FrmMenu menu1 ){
+        menu= menu1;
+        menu.btnBebidas.addActionListener(this);
+        menu.btnEntrada.addActionListener(this);
+        menu.btnFuerte.addActionListener(this);
+        menu.btnPostre.addActionListener(this);
+        menu.mHistorial.addActionListener(this);
+        
+    }
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
         pedDAO= dao;

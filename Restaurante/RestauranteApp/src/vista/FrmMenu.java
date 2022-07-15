@@ -45,7 +45,7 @@ public class FrmMenu extends javax.swing.JFrame {
         miSalir = new javax.swing.JMenuItem();
         jMSobre = new javax.swing.JMenu();
         miVersion = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        mHistorial = new javax.swing.JMenu();
         JMPerfil = new javax.swing.JMenu();
         perfil = new javax.swing.JMenuItem();
 
@@ -195,9 +195,9 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jmenuBarRestaurante.add(jMSobre);
 
-        jMenu1.setBackground(new java.awt.Color(255, 204, 204));
-        jMenu1.setText("Historial");
-        jmenuBarRestaurante.add(jMenu1);
+        mHistorial.setBackground(new java.awt.Color(255, 204, 204));
+        mHistorial.setText("Historial");
+        jmenuBarRestaurante.add(mHistorial);
 
         JMPerfil.setText("Perfil");
 
@@ -297,13 +297,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMAyuda;
     private javax.swing.JMenu jMSobre;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlBebida;
     private javax.swing.JLabel jlEntrada;
     private javax.swing.JLabel jlFuerte;
     private javax.swing.JLabel jlPostre;
     private javax.swing.JMenuBar jmenuBarRestaurante;
+    public javax.swing.JMenu mHistorial;
     private javax.swing.JMenuItem miPreguntas;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JMenuItem miVersion;
