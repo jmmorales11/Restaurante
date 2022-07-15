@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.ControladorUsuario;
+
 
 /**
  *
@@ -242,7 +242,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        ControladorUsuario.goToMainScreen(this);
+
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**

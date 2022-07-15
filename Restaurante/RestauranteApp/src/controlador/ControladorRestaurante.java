@@ -321,12 +321,66 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    if (e.getSource()== objetoRegistrar.txtNombre) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+          if (e.getSource()== objetoRegistrar.txtApellido) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoRegistrar.txtID) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoRegistrar.txtNumeroCelular) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoPerfil.txtNombre) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+          if (e.getSource()== objetoPerfil.txtApellido) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoPerfil.txtNumeroCelular) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String id= objetoRegistrar.txtID.getText();
         int lenght1 = id.length();
         if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){

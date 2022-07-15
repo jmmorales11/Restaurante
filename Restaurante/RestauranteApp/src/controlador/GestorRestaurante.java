@@ -30,7 +30,7 @@ public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
          
-FrmLogin lo= new FrmLogin();
+        FrmLogin lo= new FrmLogin();
         FrmRegistrar re= new FrmRegistrar();
         FrmConfirmacion co= new FrmConfirmacion();
         FrmMenu menu = new FrmMenu();
@@ -42,7 +42,7 @@ FrmLogin lo= new FrmLogin();
         ControladorRestaurante c3= new ControladorRestaurante(lo,usu);
         ControladorRestaurante c4= new ControladorRestaurante(co,ped);
         ControladorRestaurante c5= new ControladorRestaurante(postre,ped);
-        co.setVisible(true);
+        lo.setVisible(true);
 
      }
 

@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.ControladorUsuario;
+
 
 /**
  *
@@ -144,9 +144,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        FrmEscogeTuSabor menu = new FrmEscogeTuSabor();
-        this.setVisible(false);
-        menu.setVisible(true);
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
