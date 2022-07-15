@@ -1,4 +1,4 @@
-//Este sirve 21:58 repositorio
+//Este sirve 23:36 repositorio
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -323,7 +323,64 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyTyped(KeyEvent e) {
-       
+
+    if (e.getSource()== objetoRegistrar.txtNombre) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+          if (e.getSource()== objetoRegistrar.txtApellido) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoRegistrar.txtID) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoRegistrar.txtNumeroCelular) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoPerfil.txtNombre) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+          if (e.getSource()== objetoPerfil.txtApellido) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'a' || c>'z') && (c< 'A'|| c >'Z'))
+            {
+                e.consume();
+            }
+        }
+         if (e.getSource()== objetoPerfil.txtNumeroCelular) 
+        {
+            char c= e.getKeyChar();
+            if ((c<'0' || c>'9') )
+            {
+                e.consume();
+            }
+        }
+
     }
 
     @Override
