@@ -32,6 +32,7 @@ public class GestorRestaurante {
          
 FrmLogin lo= new FrmLogin();
         FrmRegistrar re= new FrmRegistrar();
+        FrmBebidas be = new FrmBebidas();
         FrmConfirmacion co= new FrmConfirmacion();
         FrmMenu menu = new FrmMenu();
         ControladorRestaurante controladorMenu= new ControladorRestaurante(menu);
@@ -41,7 +42,7 @@ FrmLogin lo= new FrmLogin();
         FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
         ControladorRestaurante c3= new ControladorRestaurante(lo,usu);
         ControladorRestaurante c4= new ControladorRestaurante(co,ped);
-        ControladorRestaurante c5= new ControladorRestaurante(postre,ped);
+        ControladorRestaurante c5= new ControladorRestaurante(be,ped);
         co.setVisible(true);
 
      }

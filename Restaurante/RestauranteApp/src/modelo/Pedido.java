@@ -5,15 +5,26 @@ public class Pedido {
     public String numeroPedido;
     public String nombrePedido;// nombre del plato
     public int cantidad;
+    public float precio;
 
-    public Pedido(String numeroPedido, String nombrePedido, int cantidad) {
+    public Pedido(String numeroPedido, String nombrePedido, int cantidad, float precio) {
         this.numeroPedido = numeroPedido;
         this.nombrePedido = nombrePedido;
         this.cantidad = cantidad;
+        this.precio=precio;
     }
 
         public Pedido() {
     }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+        
 
     public String getNumeroPedido() {
         return numeroPedido;

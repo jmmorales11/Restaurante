@@ -12,6 +12,7 @@ public class PedidosDAO {
         documento.put("npedido",ped.getNumeroPedido());
         documento.put("nombrePedido",ped.getNombrePedido());
         documento.put("cantidad",ped.getCantidad());
+        documento.put("precio",ped.getPrecio());
         objCon.coleccionPedido.insert(documento);
     }
     public void eliminarPedidos(String nombrePedido){
@@ -29,7 +30,7 @@ public class PedidosDAO {
         while (cursor.hasNext()){
             aux1= new Pedido((String) cursor.next().get("npedido"),
             (String) cursor.next().get("nombrePedido"),
-            (int) cursor.next().get("cantidad")); 
+            (int) cursor.next().get("cantidad"),(float) cursor.next().get("precio")); 
             listaPedidos.add(aux1);
            
         }
@@ -45,7 +46,7 @@ public class PedidosDAO {
             //primero se utiliza el next  y luego los curr
             p1 = new Pedido((String)cursor.next().get("npedido"), 
                     (String)cursor.curr().get("nombrePedido"),
-                    (int)cursor.curr().get("cantidad"));
+                    (int)cursor.curr().get("cantidad"),(float)cursor.curr().get("precio"));
             listPe.add(p1);
         }
         return listPe;
