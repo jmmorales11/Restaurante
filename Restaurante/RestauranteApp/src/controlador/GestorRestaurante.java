@@ -29,14 +29,16 @@ import vista.FrmVisualisarInformacionPedido;
 public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
-
-//        
-
+//      FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
+        FrmVisualisarInformacionPedido f= new FrmVisualisarInformacionPedido();
+//        ControladorRestaurante c3= new ControladorRestaurante(m2);
+//       FrmMenu m= new FrmMenu();
+//       ControladorRestaurante c3= new ControladorRestaurante(m);
+//         m2.setVisible(true);
+        PlatoDAO dao= new PlatoDAO();
+        ControladorRestaurante c3= new ControladorRestaurante(f,dao);
+        f.setVisible(true);
      }
-    
-
-
-
     }
 
        
