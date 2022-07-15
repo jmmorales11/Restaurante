@@ -4,7 +4,6 @@
  */
 package vista;
 
-import controlador.ControladorUsuario;
 
 /**
  *

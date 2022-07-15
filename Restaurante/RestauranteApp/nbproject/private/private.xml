@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmVerIngredientes.java</file>
             <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
             <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
+=======
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
+>>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
         </group>
     </open-files>
 </project-private>
