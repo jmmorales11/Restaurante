@@ -28,7 +28,7 @@ import vista.FrmVisualisarInformacionPedido;
 
 public class GestorRestaurante {
      public static void main(String args[]){
-<<<<<<< HEAD
+
 //      FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
         FrmVisualisarInformacionPedido f= new FrmVisualisarInformacionPedido();
 //        ControladorRestaurante c3= new ControladorRestaurante(m2);
@@ -36,15 +36,8 @@ public class GestorRestaurante {
 //       ControladorRestaurante c3= new ControladorRestaurante(m);
 //         m2.setVisible(true);
         PlatoDAO dao= new PlatoDAO();
-        ControladorRestaurante c3= new ControladorRestaurante(f,dao);
+//        ControladorRestaurante c3= new ControladorRestaurante(f,dao);
         f.setVisible(true);
-     }
-    }
-
-       
-    
-
-=======
         FrmLogin lo= new FrmLogin();
         FrmRegistrar re= new FrmRegistrar();
         FrmConfirmacion co= new FrmConfirmacion();
@@ -59,5 +52,5 @@ public class GestorRestaurante {
         
      }
 }
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
+
 

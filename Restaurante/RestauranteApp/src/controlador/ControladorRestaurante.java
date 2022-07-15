@@ -19,12 +19,9 @@ import vista.FrmEntradas;
 import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
-<<<<<<< HEAD
 import modelo.Plato;
 import modelo.PlatoDAO;
-=======
 import javax.swing.JOptionPane;
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import vista.FrmEscogeTuSabor;
@@ -166,7 +163,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         pedDAO= dao;
         objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
     }
-<<<<<<< HEAD
+
     public ControladorRestaurante(FrmVisualisarInformacionPedido ver,PlatoDAO dao ){
         objetoVistaVisualisar = ver;
         platoDAO= dao;
@@ -234,12 +231,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
            }
         }     
     }
-    
 
-
-
-=======
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
     public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -270,22 +262,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 //            objetoRegistrar = r1;
             objetoRegistrar.setVisible(true);
         }
-<<<<<<< HEAD
-//        if(e.getSource()==objetoRegistrar.btnRegistrar){
-//                String nombre= objetoRegistrar.txtNombre.getText();
-//                String apellido= objetoRegistrar.txtApellido.getText();
-//                String id= objetoRegistrar.txtID.getText();
-//                String contraseña= objetoRegistrar.txtContraseña.getText();
-//                String email= objetoRegistrar.txtEmail.getText();
-//                String numeroCelular= objetoRegistrar.txtNumeroCelular.getText();
-//                String dia= objetoRegistrar.txtDia.getText();
-//                String mes= objetoRegistrar.txtMes.getText();
-//                String año= objetoRegistrar.txtAño.getText();
-//                Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
-//                objetoDAO.insertarUsuario(objetoUsuario);
-//        }
-=======
-
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -299,7 +275,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
                 objetoDAO.insertarUsuario(objetoUsuario);
         }
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
+
         if(e.getSource()== objetoLogin.btnLogin){
                 String id = "";
                 String contraseña = "";
@@ -397,7 +373,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 pedDAO.insertarPedidos(objPed);
             }
         }
-<<<<<<< HEAD
+
         if(e.getSource()==objetoVistaVisualisar.btnVerIngredientes){
             String pedido= objetoVistaVisualisar.txtNumPedido.getText();
             objetoVistaVering= new FrmVerIngredientes();
@@ -429,7 +405,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 modeloT.addRow(columna);
             }
             objetoVistaVering.setVisible(true);
-=======
+
         if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
             int filaInicio=objetoVistaConfirmacion.jlPedidos.getSelectedRow();
             int numFS= objetoVistaConfirmacion.jlPedidos.getSelectedRowCount();
@@ -452,10 +428,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }else{
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una fila a eliminar");
             }
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
+
         }
     }
-
+    }
     @Override
     public void keyTyped(KeyEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -463,7 +439,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyPressed(KeyEvent e) {
-<<<<<<< HEAD
+
         String id= objetoRegistrar.txtID.getText();
         int lenght1 = id.length();
         if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
@@ -501,7 +477,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }
         }
         
-=======
+
 //        String id= objetoRegistrar.txtID.getText();
 //        int lenght1 = id.length();
 //        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
@@ -538,7 +514,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 //                objetoRegistrar.txtID.setEditable(false);
 //            }
 //        }
->>>>>>> 82c1c6b78b1b69387ade5d433c081a955042b418
+
     }
 
     @Override
