@@ -28,6 +28,7 @@ import vista.FrmVisualisarInformacionPedido;
 
 public class GestorRestaurante {
      public static void main(String args[]){
+
         FrmLogin lo= new FrmLogin();
         FrmRegistrar re= new FrmRegistrar();
         FrmConfirmacion co= new FrmConfirmacion();

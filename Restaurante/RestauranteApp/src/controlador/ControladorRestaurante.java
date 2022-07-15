@@ -20,6 +20,8 @@ import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Plato;
+import modelo.PlatoDAO;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import vista.FrmEscogeTuSabor;
@@ -27,7 +29,8 @@ import vista.FrmLogin;
 import vista.FrmMenu;
 import vista.FrmPerfil;
 import vista.FrmRegistrar;
-
+import vista.FrmVerIngredientes;
+import vista.FrmVisualisarInformacionPedido;
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
     PedidosDAO pedDAO= new PedidosDAO();
@@ -43,7 +46,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmMenu menu = new FrmMenu();
     FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
     Usuario objetoUsuario= new Usuario();
-    
+    FrmVerIngredientes objetoVistaVering;//kleber
+    FrmVisualisarInformacionPedido objetoVistaVisualisar= new FrmVisualisarInformacionPedido();//kleber
+    FrmhistorialOrdenes objetoVistaHistorial = new FrmhistorialOrdenes();//kleber
+    Plato plato=new Plato();//kleber
+    PlatoDAO platoDAO = new PlatoDAO();//kleber
     //Camilo
     public ControladorRestaurante(FrmEscogeTuSabor vista){
         menu2= vista;
@@ -158,6 +165,79 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         pedDAO= dao;
         objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
     }
+
+    public ControladorRestaurante(FrmVisualisarInformacionPedido ver,PlatoDAO dao ){
+        objetoVistaVisualisar = ver;
+        platoDAO= dao;
+        objetoVistaVisualisar.btnVerIngredientes.addActionListener(this);
+    }
+    public void llenarTablaEntrada(JTable tablaD){
+        DefaultTableModel modeloT= new DefaultTableModel();
+        tablaD.setModel(modeloT);
+        modeloT.addColumn("Numero de pedido");
+        modeloT.addColumn("Descripcion");
+        modeloT.addColumn("Cantidad");
+        modeloT.addColumn("Total");
+        Object [] columna = new Object[4];
+        int numReg = pedDAO.obtenerPedidos().size();
+        for(int i=0; i<numReg ;i++){
+           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
+           if(objetoVistaFuerte.rbArroz.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+           if(objetoVistaFuerte.rbChurrasco.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+           if(objetoVistaFuerte.rbEncebollado.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+        }     
+    }
+    public void llenarTablaFuerte(JTable tablaD){
+        DefaultTableModel modeloT= new DefaultTableModel();
+        tablaD.setModel(modeloT);
+        modeloT.addColumn("Numero de pedido");
+        modeloT.addColumn("Descripcion");
+        modeloT.addColumn("Cantidad");
+        modeloT.addColumn("Total");
+        Object [] columna = new Object[4];
+        int numReg = pedDAO.obtenerPedidos().size();
+        for(int i=0; i<numReg ;i++){
+           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
+           if(objetoVistaFuerte.rbArroz.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+           if(objetoVistaFuerte.rbChurrasco.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+           if(objetoVistaFuerte.rbEncebollado.isSelected()){
+               columna[0]=ped.getNumeroPedido();
+               columna[1]=ped.getNombrePedido();
+               columna[2]= ped.getCantidad();
+               columna[3]= (ped.getCantidad()*1);
+           }
+        }     
+    }
+    
+
+
+
+
     public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -189,6 +269,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoRegistrar.setVisible(true);
         }
 
+
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -202,6 +283,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
                 objetoDAO.insertarUsuario(objetoUsuario);
         }
+
         if(e.getSource()== objetoLogin.btnLogin){
                 String id = "";
                 String contraseña = "";
@@ -299,6 +381,39 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 pedDAO.insertarPedidos(objPed);
             }
         }
+
+        if(e.getSource()==objetoVistaVisualisar.btnVerIngredientes){
+            String pedido= objetoVistaVisualisar.txtNumPedido.getText();
+            objetoVistaVering= new FrmVerIngredientes();
+            objetoVistaVisualisar.setVisible(false);
+            objetoVistaVering.LabelCliente.setText(objetoVistaVisualisar.txtNumNombre.getText());
+            objetoVistaVering.LabelNumPedido.setText(objetoVistaVisualisar.txtNumPedido.getText());
+           DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaVering.jtVerIn.setModel(modeloT);
+            modeloT.addColumn("Nombre del plato");
+            modeloT.addColumn("Ingrediente");
+            modeloT.addColumn("Cantidad");
+            modeloT.addColumn("Unidades");
+            modeloT.addColumn("total de ingredientes");
+            Object [] columna= new Object[5];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                int numRe= platoDAO.buscarPlato(ped.getNombrePedido()).size();
+                for(int j=0;i<numRe;j++){
+                    plato= (Plato) platoDAO.buscarPlato(ped.getNombrePedido()).get(i);
+                    columna[0]= plato.getNombre();
+                    columna[1]=plato.getIngredientes();
+                    columna[2]=ped.getCantidad();
+//                    columna[1]=;
+//                    columna[1]=;
+//                    ped.getNombrePedido() = " ";
+                    }
+                modeloT.addRow(columna);
+            }
+            objetoVistaVering.setVisible(true);
+
         if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
             int filaInicio=objetoVistaConfirmacion.jlPedidos.getSelectedRow();
             int numFS= objetoVistaConfirmacion.jlPedidos.getSelectedRowCount();
@@ -321,6 +436,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }else{
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una fila a eliminar");
             }
+
         }
     }
 
@@ -331,6 +447,45 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
+        String id= objetoRegistrar.txtID.getText();
+        int lenght1 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght1<10){
+                objetoRegistrar.txtID.setEditable(true);
+            }else{
+                objetoRegistrar.txtID.setEditable(false);
+            }
+        }
+        String numeroCelular1= objetoRegistrar.txtNumeroCelular.getText();
+        int lenght2 = numeroCelular1.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght2<10){
+                objetoRegistrar.txtNumeroCelular.setEditable(true);
+            }else{
+                objetoRegistrar.txtNumeroCelular.setEditable(false);
+            }
+        }
+        String numeroCelular2= objetoPerfil.txtNumeroCelular.getText();
+        int lenght3 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght3<10){
+                objetoPerfil.txtNumeroCelular.setEditable(true);
+            }else{
+                objetoPerfil.txtNumeroCelular.setEditable(false);
+            }
+        }
+        String id2= objetoRegistrar.txtID.getText();
+        int lenght4 = id.length();
+        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
+            if (lenght1<10){
+                objetoRegistrar.txtID.setEditable(true);
+            }else{
+                objetoRegistrar.txtID.setEditable(false);
+            }
+        }
+        
+
 //        String id= objetoRegistrar.txtID.getText();
 //        int lenght1 = id.length();
 //        if(e.getKeyChar()>='0' && e.getKeyChar()<='9'){
@@ -367,6 +522,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 //                objetoRegistrar.txtID.setEditable(false);
 //            }
 //        }
+
     }
 
     @Override
@@ -392,4 +548,5 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }
        }
     }  
+}
 }
