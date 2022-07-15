@@ -1,5 +1,7 @@
 //Repositorio
 //Creo que no da errores 
+
+//ESTE SIRVE
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -7,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Pedido;
@@ -16,6 +19,7 @@ import vista.FrmEntradas;
 import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import vista.FrmEscogeTuSabor;
@@ -150,138 +154,20 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         pedDAO= dao;
         objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
     }
-    public void llenarTablaEntrada(JTable tablaD){
-        DefaultTableModel modeloT= new DefaultTableModel();
-        tablaD.setModel(modeloT);
-        modeloT.addColumn("Numero de pedido");
-        modeloT.addColumn("Descripcion");
-        modeloT.addColumn("Cantidad");
-        modeloT.addColumn("Total");
-        Object [] columna = new Object[4];
-        int numReg = pedDAO.obtenerPedidos().size();
-        for(int i=0; i<numReg ;i++){
-           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
-           if(objetoVistaFuerte.rbArroz.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-           if(objetoVistaFuerte.rbChurrasco.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-           if(objetoVistaFuerte.rbEncebollado.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-        }     
-    }
-    public void llenarTablaFuerte(JTable tablaD){
-        DefaultTableModel modeloT= new DefaultTableModel();
-        tablaD.setModel(modeloT);
-        modeloT.addColumn("Numero de pedido");
-        modeloT.addColumn("Descripcion");
-        modeloT.addColumn("Cantidad");
-        modeloT.addColumn("Total");
-        Object [] columna = new Object[4];
-        int numReg = pedDAO.obtenerPedidos().size();
-        for(int i=0; i<numReg ;i++){
-           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
-           if(objetoVistaFuerte.rbArroz.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-           if(objetoVistaFuerte.rbChurrasco.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-           if(objetoVistaFuerte.rbEncebollado.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-           }
-        }     
-    }
-    
-
-
-
     public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
-        modeloT.addColumn("Numero de pedido");
-        modeloT.addColumn("Descripcion");
+        modeloT.addColumn("Descripcion ");
         modeloT.addColumn("Cantidad");
-        modeloT.addColumn("Total");
-        Object [] columna = new Object[4];
-        int numReg = pedDAO.obtenerPedidos().size();
-        for(int i=0; i<numReg ;i++){
-           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
-           if(objetoVistaBebidas.rbCoca.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
-           if(objetoVistaBebidas.rbFanta.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
-           if(objetoVistaBebidas.rbSprite.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
-        }
-    }
-    public void llenarTablaPostre(JTable tablaD){
-        DefaultTableModel modeloT= new DefaultTableModel();
-        tablaD.setModel(modeloT);
-        modeloT.addColumn("Numero de pedido");
-        modeloT.addColumn("Descripcion");
-        modeloT.addColumn("Cantidad");
-        modeloT.addColumn("Total");
-        Object [] columna = new Object[4];
-        int numReg = pedDAO.obtenerPedidos().size();
-        for(int i=0; i<numReg ;i++){
-           ped=(Pedido)pedDAO.obtenerPedidos().get(i);
-           if(objetoVistaPostre.rbCoco.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
-           if(objetoVistaPostre.rbDulceGuayaba.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
-           if(objetoVistaPostre.rbEspumillaNaranjilla.isSelected()){
-               columna[0]=ped.getNumeroPedido();
-               columna[1]=ped.getNombrePedido();
-               columna[2]= ped.getCantidad();
-               columna[3]= (ped.getCantidad()*1);
-                modeloT.addRow(columna);
-           }
+//        modeloT.addColumn("Precio");
+        Object[] columna = new Object[2];
+        int numReg= pedDAO.obtenerPedidos().size();
+        for( int i=0; i<numReg;i++){
+            ped =(Pedido)pedDAO.obtenerPedidos().get(i);
+            columna[0]= ped.getNombrePedido();
+            columna[1]= ped.getCantidad();
+//            columna[3]= (ped.getCantidad()*1);
+            modeloT.addRow(columna);      
         }
     }
         @Override
@@ -409,6 +295,29 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 pedDAO.insertarPedidos(objPed);
             }
         }
+        if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
+            int filaInicio=objetoVistaConfirmacion.jlPedidos.getSelectedRow();
+            int numFS= objetoVistaConfirmacion.jlPedidos.getSelectedRowCount();
+            ArrayList<String> lista= new ArrayList();
+            String nom="";
+            if(filaInicio>0){
+                for(int i=0;1<numFS;i++){
+                    nom=String.valueOf(objetoVistaConfirmacion.jlPedidos.getValueAt(i+filaInicio,0 ));
+                    lista.add(nom);
+                }
+                for(int i=0;i<numFS;i++){
+                    int respuesta= JOptionPane.showConfirmDialog(null,"quiere eliminar el pedido:\n"+nom+"?");
+                    if (respuesta==0){
+                        pedDAO.eliminarPedidos(nom);
+                    }
+                    llenarTabla(objetoVistaConfirmacion.jlPedidos);
+                    
+                }
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Debe seleccionar una fila a eliminar");
+            }
+        }
     }
 
     @Override
@@ -462,7 +371,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
            DefaultTableModel modeloT= new DefaultTableModel();
             objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
-            modeloT.addColumn("Numero Pedido");
+//            modeloT.addColumn("Numero Pedido");
             modeloT.addColumn("Descripcion");
             modeloT.addColumn("Cantidad");
 //            modeloT.addColumn("PAIS");
@@ -471,9 +380,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             for(int i=0;i<numReg;i++){
                 ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
                 System.out.println(ped);
-                columna[0]= ped.getNumeroPedido();
-                columna[1]=ped.getNombrePedido();
-                columna[2]=ped.getCantidad();
+//                columna[0]= ped.getNumeroPedido();
+                columna[0]=ped.getNombrePedido();
+                columna[1]=ped.getCantidad();
+//                columna[2]=(ped.getCantidad()*1);
                 modeloT.addRow(columna);
             }
        }

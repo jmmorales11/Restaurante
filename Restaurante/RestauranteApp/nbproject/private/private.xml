@@ -3,30 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmEscogeTuSabor.java</file>
             <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmConfirmacion.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmPerfil.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmBebidas.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmLogin.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/PlatoDAO.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/Pedido.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/PedidosDAO.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmFuerte.java</file>
             <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmMenu.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorVisualisarIngredientes.java</file>
-            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/Conexion.java</file>
-=======
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmBebidas.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/modelo/Conexion.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmFuerte.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmPostre.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmVerIngredientes.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmEntradas.java</file>
-            <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
->>>>>>> ef897b01fb97b63061266e67e9fe5aae3146438c
         </group>
     </open-files>
 </project-private>

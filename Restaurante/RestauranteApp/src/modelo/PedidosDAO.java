@@ -14,7 +14,12 @@ public class PedidosDAO {
         documento.put("cantidad",ped.getCantidad());
         objCon.coleccionPedido.insert(documento);
     }
-    
+    public void eliminarPedidos(String nombrePedido){
+         Conexion objCon = new Conexion();
+        BasicDBObject documento = new BasicDBObject();
+        documento.put("nombrePedido", nombrePedido);
+        objCon.coleccionPedido.remove(documento);
+    }
     public ArrayList obtenerPedidos(){
         ArrayList<Pedido> listaPedidos= new ArrayList<Pedido>();
         Pedido aux1= null;

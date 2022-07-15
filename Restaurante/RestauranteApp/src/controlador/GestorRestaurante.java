@@ -30,13 +30,15 @@ public class GestorRestaurante {
      public static void main(String args[]){
         FrmLogin lo= new FrmLogin();
         FrmRegistrar re= new FrmRegistrar();
-        
+        FrmConfirmacion co= new FrmConfirmacion();
         PedidosDAO ped= new PedidosDAO();
-        
+        FrmPostre postre= new FrmPostre();
         UsuarioDAO usu= new UsuarioDAO();
         FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
         ControladorRestaurante c3= new ControladorRestaurante(lo,usu);
-        lo.setVisible(true);
+        ControladorRestaurante c4= new ControladorRestaurante(co,ped);
+        ControladorRestaurante c5= new ControladorRestaurante(postre,ped);
+        postre.setVisible(true);
         
      }
 }
