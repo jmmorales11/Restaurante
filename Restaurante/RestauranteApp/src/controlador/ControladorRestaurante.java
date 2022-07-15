@@ -1,5 +1,4 @@
-//Este sirve 221:40
-
+//Este sirve 21:58 repositorio
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -7,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Pedido;
@@ -16,6 +16,7 @@ import vista.FrmEntradas;
 import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import vista.FrmEscogeTuSabor;
@@ -85,14 +86,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoPerfil.txtMes.addKeyListener(this);
         objetoPerfil.txtAño.addKeyListener(this);
     }
-    public static void goToMainScreen(JFrame jFrameToClose){
-        FrmMenu menu = new FrmMenu();
-        jFrameToClose.setVisible(false);
-        menu.setVisible(true);
-        
-    }
+
     
 //Jeimy no tocar 
+
     public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
         objetoVistaBebidas=vistab;
         pedDAO= dao;
@@ -296,6 +293,30 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 pedDAO.insertarPedidos(objPed);
             }
         }
+        if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
+            int filaInicio=objetoVistaConfirmacion.jlPedidos.getSelectedRow();
+            int numFS= objetoVistaConfirmacion.jlPedidos.getSelectedRowCount();
+            ArrayList<String> lista= new ArrayList();
+            String nom="";
+            if(filaInicio>0){
+                for(int i=0;1<numFS;i++){
+                    nom=String.valueOf(objetoVistaConfirmacion.jlPedidos.getValueAt(i+filaInicio,0 ));
+                    lista.add(nom);
+                }
+                for(int i=0;i<numFS;i++){
+                    int respuesta= JOptionPane.showConfirmDialog(null,"quiere eliminar el pedido:\n"+nom+"?");
+                    if (respuesta==0){
+                        pedDAO.eliminarPedidos(nom);
+                    }
+                    llenarTabla(objetoVistaConfirmacion.jlPedidos);
+                    
+                }
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Debe seleccionar una fila a eliminar");
+            }
+
+        }
     }
 
     @Override
@@ -350,18 +371,17 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
            DefaultTableModel modeloT= new DefaultTableModel();
             objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
-            modeloT.addColumn("Numero Pedido");
             modeloT.addColumn("Descripcion");
             modeloT.addColumn("Cantidad");
 //            modeloT.addColumn("PAIS");
-            Object [] columna= new Object[3];
+            Object [] columna= new Object[2];
             int numReg= pedDAO.buscarPedido(pedido).size();
             for(int i=0;i<numReg;i++){
                 ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
                 System.out.println(ped);
-                columna[0]= ped.getNumeroPedido();
-                columna[1]=ped.getNombrePedido();
-                columna[2]=ped.getCantidad();
+            
+                columna[0]=ped.getNombrePedido();
+                columna[1]=ped.getCantidad();
                 modeloT.addRow(columna);
             }
        }
