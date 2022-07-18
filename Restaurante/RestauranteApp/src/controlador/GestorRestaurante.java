@@ -44,9 +44,9 @@ public class GestorRestaurante {
         ControladorRestaurante c4= new ControladorRestaurante(co,ped);
 
         ControladorRestaurante c5= new ControladorRestaurante(be,ped);
-        co.setVisible(true);
-        ControladorRestaurante c6= new ControladorRestaurante(postre,ped);
         lo.setVisible(true);
+        ControladorRestaurante c6= new ControladorRestaurante(postre,ped);
+
 
      }
 

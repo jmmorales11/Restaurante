@@ -73,6 +73,12 @@ public class FrmPerfil extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         jLabel6.setText("Numero de celular");
 
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
         txtApellido.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
@@ -244,6 +250,10 @@ public class FrmPerfil extends javax.swing.JFrame {
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
 
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments

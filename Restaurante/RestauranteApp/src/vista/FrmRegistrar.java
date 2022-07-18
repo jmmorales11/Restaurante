@@ -242,9 +242,7 @@ public class FrmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraseñaActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        FrmLogin login = new FrmLogin();
-        this.setVisible(false);
-        login.setVisible(true);
+       
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
