@@ -66,8 +66,8 @@ public class GestorRestaurante {
      
      FrmVerIngredientes ing = new FrmVerIngredientes();
     // ControladorRestaurante c2 = new ControladorRestaurante(ing);
-
-        menuPrimario.setVisible(true);
+        //entradas.setVisible(true);
+        //menuPrimario.setVisible(true);
      };
      }
 

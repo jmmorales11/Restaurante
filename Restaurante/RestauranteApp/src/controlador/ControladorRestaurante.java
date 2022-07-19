@@ -18,6 +18,7 @@ import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Plato;
 import modelo.PlatoDAO;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
@@ -47,6 +48,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmVerIngredientes objetoVistaIngredientes;
     FrmVisualisarInformacionPedido objetoVistaFactura;
     PlatoDAO platodao;
+    Plato pla= new Plato();
 //Camilo
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
@@ -129,6 +131,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaConfirmacion = confirmacion;
         this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
         this.objetoVistaConfirmacion.btnEliminar.addActionListener(this);
+        this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
         
        this.objetoVistaFactura = factura;
        this.objetoVistaFactura.btnVerIngredientes.addActionListener(this);
@@ -517,7 +520,55 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoVistaFactura.setVisible(true);
             
         }
-    }
+        if(e.getSource()==objetoVistaFactura.btnVerIngredientes){
+            
+            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();           
+           objetoVistaIngredientes.LabelCliente.setText(objetoVistaFactura.nombreCliente.getText());
+           objetoVistaIngredientes.LabelNumeroPedido.setText(objetoVistaFactura.numeroPedido.getText());
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                int numRe= platodao.buscarPlato(ped.getNombrePedido()).size();
+                for(int j=0;i<numRe;j++){
+                pla= (Plato) platodao.buscarPlato(ped.getNombrePedido()).get(i);
+                objetoVistaIngredientes.txaIngredientes.setText(pla.getNombre());
+                objetoVistaIngredientes.txaIngredientes.setEditable(false);
+//        String pedido= objetoVistaVisualisar.txtOrden.getText();
+//            objetoVistaVering= new FrmVerIngredientes();
+//            objetoVistaVering.LabelCliente.setText(objetoVistaVisualisar.txtNombreF.getText());
+//            objetoVistaVering.LabelNumPedido.setText(objetoVistaVisualisar.txtOrden.getText());
+//            objetoVistaVisualisar.setVisible(false);
+//           DefaultTableModel modeloT= new DefaultTableModel();
+//            objetoVistaVering.jtVerIn.setModel(modeloT);
+//            modeloT.addColumn("Nombre del plato");
+//            modeloT.addColumn("Ingrediente");
+//            modeloT.addColumn("Cantidad");
+//            modeloT.addColumn("Unidades");
+//            modeloT.addColumn("total de ingredientes");
+//            Object [] columna= new Object[5];
+//            int numReg= pedDAO.buscarPedido(pedido).size();
+//            for(int i=0;i<numReg;i++){
+//                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+////                System.out.println(ped);
+////                int numRe= platoDAO.buscarPlato(ped.getNombrePedido()).size();
+////                for(int j=0;i<numRe;j++){
+////                    plato= (Plato) platoDAO.buscarPlato(ped.getNombrePedido()).get(i);
+////                    columna[0]= plato.getNombre();
+////                    columna[1]=plato.getIngredientes();
+////                    columna[2]=ped.getCantidad();
+//////                    columna[1]=;
+//////                    columna[1]=;
+//////                    ped.getNombrePedido() = " ";
+////                    }
+//                modeloT.addRow(columna);
+//            }
+//            objetoVistaVering.setVisible(true);
+        }
+            objetoVistaIngredientes.setVisible(true);
+            objetoVistaFactura.setVisible(false);
+        }
+    }}
 
     @Override
     public void keyTyped(KeyEvent e) {
