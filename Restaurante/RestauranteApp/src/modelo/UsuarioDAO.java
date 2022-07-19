@@ -58,6 +58,35 @@ public class UsuarioDAO {
        throw new IllegalArgumentException();
     }
     
+    public void modificar(String nombre1,
+            String apellido1,
+            String id1,
+            String contraseña1,
+            String email1,
+            String numeroCelular1,
+            String dia1,
+            String mes1, 
+            String anio1){
+        DBObject buscado= new BasicDBObject("id",id1);
+        DBObject nombre= new BasicDBObject().append("$set",new BasicDBObject().append("nombre",nombre1));
+        DBObject apellido= new BasicDBObject().append("$set",new BasicDBObject().append("apellido",apellido1));
+        DBObject contraseñaNuevo= new BasicDBObject().append("$set",new BasicDBObject().append("contraseña",contraseña1));
+        DBObject correo= new BasicDBObject().append("$set",new BasicDBObject().append("email",email1));
+        DBObject nCelular= new BasicDBObject().append("$set",new BasicDBObject().append("numeroCelular",numeroCelular1));
+        DBObject dia= new BasicDBObject().append("$set",new BasicDBObject().append("dia",dia1));
+        DBObject mes= new BasicDBObject().append("$set",new BasicDBObject().append("mes",mes1));
+        DBObject anio= new BasicDBObject().append("$set",new BasicDBObject().append("año",anio1));
+        objCon.coleccion.update(buscado, nombre);
+        objCon.coleccion.update(buscado, apellido);
+        objCon.coleccion.update(buscado, contraseñaNuevo);
+        objCon.coleccion.update(buscado, correo);
+        objCon.coleccion.update(buscado, nCelular);
+        objCon.coleccion.update(buscado, dia);
+        objCon.coleccion.update(buscado, mes);
+        objCon.coleccion.update(buscado, anio);
+
+    }
+    
    public boolean validarLogin(String id,String contraseña){
        Usuario aux = new Usuario();
        DBCursor cursor = objCon.coleccion.find();
