@@ -44,6 +44,12 @@ public class FrmEntradas extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtCantidadPan = new javax.swing.JTextField();
+        jlPrecioBolon = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jlPrecioEmpanadas = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jlPanYuca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +100,7 @@ public class FrmEntradas extends javax.swing.JFrame {
 
         jLabel6.setText("N° Pedidio");
 
+        rbPanYuca.setBackground(new java.awt.Color(255, 255, 255));
         rbPanYuca.setText("Pan de Yuca");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/panyuca.jpg"))); // NOI18N
@@ -105,6 +112,18 @@ public class FrmEntradas extends javax.swing.JFrame {
                 txtCantidadPanActionPerformed(evt);
             }
         });
+
+        jlPrecioBolon.setText("1.25");
+
+        jLabel10.setText("Precio: $");
+
+        jLabel11.setText("Precio: $");
+
+        jlPrecioEmpanadas.setText("1.00");
+
+        jLabel13.setText("Precio: $ ");
+
+        jlPanYuca.setText("1.15");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,8 +153,17 @@ public class FrmEntradas extends javax.swing.JFrame {
                                     .addComponent(jLabel8)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtCantidadBolon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCantidadBolon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jlPrecioBolon))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jlPanYuca)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rbEmpanadaMorocho)
@@ -144,9 +172,13 @@ public class FrmEntradas extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel11))
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtCantidadEmpanadasMorocho, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jlPrecioEmpanadas)
+                                            .addComponent(txtCantidadEmpanadasMorocho, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(86, 86, 86))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,15 +224,25 @@ public class FrmEntradas extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtCantidadBolon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel5)))
-                .addGap(66, 66, 66)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jlPrecioBolon)
+                    .addComponent(jLabel11)
+                    .addComponent(jlPrecioEmpanadas))
+                .addGap(41, 41, 41)
                 .addComponent(rbPanYuca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtCantidadPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jlPanYuca))
+                .addGap(29, 29, 29)
                 .addComponent(btnAgregarEntrada)
                 .addGap(35, 35, 35)
                 .addComponent(btnRegresar)
@@ -263,6 +305,7 @@ public class FrmEntradas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -276,6 +319,9 @@ public class FrmEntradas extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarEntrada;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -284,6 +330,9 @@ public class FrmEntradas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel jlPanYuca;
+    public javax.swing.JLabel jlPrecioBolon;
+    public javax.swing.JLabel jlPrecioEmpanadas;
     public javax.swing.JRadioButton rbBolonVerde;
     public javax.swing.JRadioButton rbEmpanadaMorocho;
     public javax.swing.JRadioButton rbPanYuca;
