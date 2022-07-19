@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
-            <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/modelo/PedidosDAO.java</file>
+            <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/modelo/UsuarioDAO.java</file>
             <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
-            <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/modelo/Pedido.java</file>
         </group>
     </open-files>
 </project-private>

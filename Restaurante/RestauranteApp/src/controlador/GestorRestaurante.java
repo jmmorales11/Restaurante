@@ -39,6 +39,7 @@ public class GestorRestaurante {
         FrmPerfil perfil = new FrmPerfil();
         FrmBebidas bebidas = new FrmBebidas();
         PedidosDAO pedDAO = new PedidosDAO();
+        FrmEntradas entradas = new FrmEntradas();
         FrmConfirmacion frmConfirmar = new FrmConfirmacion();
         ControladorRestaurante c = new ControladorRestaurante(
                 menuPrimario, 
@@ -48,7 +49,8 @@ public class GestorRestaurante {
                 dao,
                 perfil,
                 bebidas,
-                pedDAO
+                pedDAO,
+                entradas
         );
         menuPrimario.setVisible(true);
      
