@@ -25,6 +25,7 @@ import vista.FrmLogin;
 import vista.FrmMenu;
 import vista.FrmPerfil;
 import vista.FrmPostre;
+import vista.FrmVerIngredientes;
 import vista.FrmVisualisarInformacionPedido;
 
 public class GestorRestaurante {
@@ -41,6 +42,9 @@ public class GestorRestaurante {
         PedidosDAO pedDAO = new PedidosDAO();
         FrmEntradas entradas = new FrmEntradas();
         FrmConfirmacion frmConfirmar = new FrmConfirmacion();
+        FrmVisualisarInformacionPedido factura = new FrmVisualisarInformacionPedido();
+        FrmVerIngredientes ingrediente = new FrmVerIngredientes ();
+        PlatoDAO plato = new PlatoDAO ();
         ControladorRestaurante c = new ControladorRestaurante(
                 menuPrimario, 
                 login, 
@@ -51,9 +55,18 @@ public class GestorRestaurante {
                 bebidas,
                 pedDAO,
                 frmConfirmar,
+                factura,
+                ingrediente,
+                plato,
                 entradas
-                
         );
+        //menuPrimario.setVisible(true);
+
+     frmConfirmar.setVisible(true);
+     
+     FrmVerIngredientes ing = new FrmVerIngredientes();
+    // ControladorRestaurante c2 = new ControladorRestaurante(ing);
+
         menuPrimario.setVisible(true);
      };
      }
