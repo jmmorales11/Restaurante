@@ -211,6 +211,24 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             modeloT.addRow(columna);      
         }
     }
+      public void limpiarElementos()
+    {
+        objetoPerfil.txtNombre.setText("");
+        objetoPerfil.txtNombre.setEditable(true);
+        objetoPerfil.txtApellido.setText("");
+        objetoPerfil.txtApellido.setEditable(true);
+        objetoPerfil.txtContraseña.setText("");
+        objetoPerfil.txtContraseña.setEditable(true);
+        objetoPerfil.txtEmail.setText("");
+        objetoPerfil.txtEmail.setEditable(true);
+        objetoPerfil.txtNumeroCelular.setText("");
+        objetoPerfil.txtNumeroCelular.setEditable(true);
+        objetoPerfil.txtMes.setText("");
+        objetoPerfil.txtMes.setEditable(true);
+        objetoPerfil.txtAño.setText("");
+        objetoPerfil.txtAño.setEditable(true);
+        
+    }
         @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==menu2.miLogin){
@@ -257,23 +275,65 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoPerfil.setVisible(true);
             objetoPerfil.txtNombre.setText(objetoUsuario.getNombre());
             objetoPerfil.txtApellido.setText(objetoUsuario.getApellido());
+            objetoPerfil.txtID.setText(objetoUsuario.getId());
             objetoPerfil.txtContraseña.setText(objetoUsuario.getContraseña());
             objetoPerfil.txtEmail.setText(objetoUsuario.getEmail());
             objetoPerfil.txtNumeroCelular.setText(objetoUsuario.getNumeroCelular());
             objetoPerfil.txtDia.setText(objetoUsuario.getDia());
             objetoPerfil.txtMes.setText(objetoUsuario.getMes());
             objetoPerfil.txtAño.setText(objetoUsuario.getAño());
+            objetoPerfil.txtNombre.setEditable(false);
+            objetoPerfil.txtApellido.setEditable(false);
+            objetoPerfil.txtID.setEditable(false);
+            objetoPerfil.txtEmail.setEditable(false);
+            objetoPerfil.txtContraseña.setEditable(false);
+            objetoPerfil.txtEmail.setEditable(false);
+            objetoPerfil.txtNumeroCelular.setEditable(false);
+            objetoPerfil.txtDia.setEditable(false);
+            objetoPerfil.txtMes.setEditable(false);
+            objetoPerfil.txtAño.setEditable(false);
         }
         
         if(e.getSource()==objetoPerfil.btnMenu){
             objetoPerfil.setVisible(false);
             menu.setVisible(true);
         }
+
+        
+        if(e.getSource()==objetoPerfil.btnModificar){
+            String nombre = objetoPerfil.txtNombre.getText();
+            String apellido = objetoPerfil.txtApellido.getText();
+            String id = objetoPerfil.txtID.getText();
+            String contraseña = objetoPerfil.txtContraseña.getText();
+            String email = objetoPerfil.txtEmail.getText();
+            String numeroCelular = objetoPerfil.txtNumeroCelular.getText();
+            String dia = objetoPerfil.txtDia.getText();
+            String mes = objetoPerfil.txtMes.getText();
+            String año = objetoPerfil.txtAño.getText();
+            objetoDAO.modificar(nombre, apellido, id, contraseña, email, numeroCelular, dia, mes, año);
+            
+            
+        }
+        
+        if(e.getSource()==objetoPerfil.btnEditar){
+            objetoPerfil.txtNombre.setEditable(true);
+            objetoPerfil.txtApellido.setEditable(true);
+            objetoPerfil.txtEmail.setEditable(true);
+            objetoPerfil.txtContraseña.setEditable(true);
+            objetoPerfil.txtEmail.setEditable(true);
+            objetoPerfil.txtNumeroCelular.setEditable(true);
+            objetoPerfil.txtDia.setEditable(true);
+            objetoPerfil.txtMes.setEditable(true);
+            objetoPerfil.txtAño.setEditable(true);
+        }
+        
+
         if(e.getSource()==menu.btnConfirmacionPedidos){
             menu.setVisible(false);
             objetoVistaConfirmacion.setVisible(true);
             objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setText(menu.txtNumeroPedido.getText());
         }
+
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
             objetoVistaBebidas.setVisible(true);
