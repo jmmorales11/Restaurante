@@ -4,6 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmMenu.java</file>
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorVisualisarIngredientes.java</file>
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/Conexion.java</file>
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/controlador/ControladorRestaurante.java</file>
             <file>file:/C:/Users/Lenovo-PC/Desktop/new/universidad/segundo_semestre/poo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmVisualisarInformacionPedido.java</file>
@@ -17,8 +24,9 @@
             <file>file:/C:/Users/camilo/Documents/Programacion/Restaurante/Restaurante/RestauranteApp/src/controlador/GestorRestaurante.java</file>
 >>>>>>> 937eee8c4d15b9b2cb6c3392ede707ecfb4ac2b6
 =======
+>>>>>>> 0236105a61345a43a858a05dd7ad104433e52330
             <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/modelo/UsuarioDAO.java</file>
->>>>>>> 657f9b59ec6e0e5af1e349bfad1f8a3b76391ec2
+            <file>file:/C:/Users/Jeimy/OneDrive/Documentos/Segundo_semestre/Repositorio/Restaurantenuevo/Restaurante/Restaurante/RestauranteApp/src/vista/FrmEntradas.java</file>
         </group>
     </open-files>
 </project-private>
