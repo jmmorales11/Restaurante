@@ -32,7 +32,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jlBebida = new javax.swing.JLabel();
         jlEntrada = new javax.swing.JLabel();
         jlPostre = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnBebidas = new javax.swing.JButton();
         btnEntrada = new javax.swing.JButton();
         btnFuerte = new javax.swing.JButton();
@@ -42,6 +41,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNumeroPedido = new javax.swing.JTextField();
+        btnConfirmacionPedidos = new javax.swing.JButton();
         jmenuBarRestaurante = new javax.swing.JMenuBar();
         jMAyuda = new javax.swing.JMenu();
         miPreguntas = new javax.swing.JMenuItem();
@@ -64,8 +64,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jlPostre.setBackground(new java.awt.Color(102, 102, 102));
         jlPostre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/Postre.png"))); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/Decorar.png"))); // NOI18N
 
         btnBebidas.setBackground(new java.awt.Color(255, 204, 204));
         btnBebidas.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
@@ -108,6 +106,13 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jLabel2.setText("N° Pedido: ");
 
+        btnConfirmacionPedidos.setText("Confirmacion Pedido");
+        btnConfirmacionPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmacionPedidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -145,14 +150,17 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(28, 28, 28))
+                .addGap(378, 378, 378))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(319, 319, 319)
+                        .addComponent(btnConfirmacionPedidos)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -166,12 +174,12 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -186,11 +194,9 @@ public class FrmMenu extends javax.swing.JFrame {
                     .addComponent(btnEntrada)
                     .addComponent(btnFuerte)
                     .addComponent(btnPostre))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(btnConfirmacionPedidos)
+                .addContainerGap())
         );
 
         jMAyuda.setBackground(new java.awt.Color(255, 204, 204));
@@ -272,6 +278,10 @@ public class FrmMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBebidasActionPerformed
 
+    private void btnConfirmacionPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmacionPedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmacionPedidosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,13 +321,13 @@ public class FrmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenu JMPerfil;
     public javax.swing.JButton btnBebidas;
+    public javax.swing.JButton btnConfirmacionPedidos;
     public javax.swing.JButton btnEntrada;
     public javax.swing.JButton btnFuerte;
     public javax.swing.JButton btnPostre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMAyuda;
     private javax.swing.JMenu jMSobre;

@@ -50,7 +50,9 @@ public class GestorRestaurante {
                 perfil,
                 bebidas,
                 pedDAO,
+                frmConfirmar,
                 entradas
+                
         );
         menuPrimario.setVisible(true);
      };

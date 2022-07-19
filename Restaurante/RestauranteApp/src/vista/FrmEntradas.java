@@ -37,7 +37,7 @@ public class FrmEntradas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtCantidadEmpanadasMorocho = new javax.swing.JTextField();
         btnAgregarEntrada = new javax.swing.JButton();
-        btnRegresar = new javax.swing.JButton();
+        btnRegresarEntrada = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtPedidoEntrada = new javax.swing.JTextField();
         rbPanYuca = new javax.swing.JRadioButton();
@@ -94,9 +94,9 @@ public class FrmEntradas extends javax.swing.JFrame {
             }
         });
 
-        btnRegresar.setBackground(new java.awt.Color(255, 204, 204));
-        btnRegresar.setFont(new java.awt.Font("Cooper Black", 1, 14)); // NOI18N
-        btnRegresar.setText("Regresar");
+        btnRegresarEntrada.setBackground(new java.awt.Color(255, 204, 204));
+        btnRegresarEntrada.setFont(new java.awt.Font("Cooper Black", 1, 14)); // NOI18N
+        btnRegresarEntrada.setText("Regresar");
 
         jLabel6.setText("N° Pedidio");
 
@@ -131,7 +131,7 @@ public class FrmEntradas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegresar)
+                .addComponent(btnRegresarEntrada)
                 .addGap(55, 55, 55))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
@@ -245,7 +245,7 @@ public class FrmEntradas extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(btnAgregarEntrada)
                 .addGap(35, 35, 35)
-                .addComponent(btnRegresar)
+                .addComponent(btnRegresarEntrada)
                 .addGap(23, 23, 23))
         );
 
@@ -317,7 +317,7 @@ public class FrmEntradas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregarEntrada;
-    private javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnRegresarEntrada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
