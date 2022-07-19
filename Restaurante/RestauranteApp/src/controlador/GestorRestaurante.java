@@ -50,12 +50,11 @@ public class GestorRestaurante {
                 perfil,
                 bebidas,
                 pedDAO,
+                frmConfirmar,
                 entradas
+                
         );
         menuPrimario.setVisible(true);
-     
-     ControladorRestaurante c1 = new ControladorRestaurante(frmConfirmar,pedDAO);
-     frmConfirmar.setVisible(true);
      };
      }
 

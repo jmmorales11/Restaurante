@@ -1,4 +1,4 @@
-//Este sirve 23:36 repositorio
+//Este sirve 19/7/2022  11.10
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -33,7 +33,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmEntradas objetoVistaEntradas;
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
-    FrmConfirmacion objetoVistaConfirmacion= new FrmConfirmacion();
+    FrmConfirmacion objetoVistaConfirmacion;
     UsuarioDAO objetoDAO= new UsuarioDAO();
     FrmRegistrar objetoRegistrar=new FrmRegistrar();
     FrmLogin objetoLogin = new FrmLogin();
@@ -52,6 +52,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             FrmPerfil frmPerfil,
             FrmBebidas frmBebidas,
             PedidosDAO pedidosDAO,
+            FrmConfirmacion frmConfirmacion,
             FrmEntradas frmEntradas
     ){
         menu2= vista;
@@ -86,6 +87,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.menu.btnPostre.addActionListener(this);
         this.menu.mHistorial.addActionListener(this);
         this.menu.txtNumeroPedido.addKeyListener(this);
+        this.menu.btnConfirmacionPedidos.addActionListener(this);
         
         this.objetoDAO = usuarioDao;
         
@@ -110,9 +112,12 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaBebidas.txtPedidoBebidas.addKeyListener(this);
         this.objetoVistaBebidas.btnAgregarBebidas.addActionListener(this);
         this.objetoVistaBebidas.btnRegresar.addActionListener(this);
-        this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
+        
         
         this.pedDAO = pedidosDAO;
+        
+        this.objetoVistaConfirmacion=frmConfirmacion;
+        this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
         
         this.objetoVistaEntradas = frmEntradas;
         this.objetoVistaEntradas.btnAgregarEntrada.addActionListener(this);
@@ -122,6 +127,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaEntradas.txtCantidadBolon.addKeyListener(this);
         this.objetoVistaEntradas.txtCantidadEmpanadasMorocho.addKeyListener(this);
         this.objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
+        this.objetoVistaEntradas.btnRegresarEntrada.addActionListener(this);
     }
     
     
@@ -154,22 +160,20 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaFuerte.jlEncebollado.addKeyListener(this);
         
     }
-    public  ControladorRestaurante(FrmMenu menu1 ){
-        menu= menu1;
-        menu.btnBebidas.addActionListener(this);
-        menu.btnEntrada.addActionListener(this);
-        menu.btnFuerte.addActionListener(this);
-        menu.btnPostre.addActionListener(this);
-        menu.mHistorial.addActionListener(this);
+    
+    public ControladorRestaurante(FrmEntradas vistaE,PedidosDAO dao ){
+        objetoVistaEntradas = vistaE;
+        pedDAO= dao;
+        objetoVistaEntradas.btnAgregarEntrada.addActionListener(this);
+        objetoVistaEntradas.rbBolonVerde.addActionListener(this);
+        objetoVistaEntradas.rbEmpanadaMorocho.addActionListener(this);
+        objetoVistaEntradas.rbPanYuca.addActionListener(this);
+        objetoVistaEntradas.txtCantidadBolon.addKeyListener(this);
+        objetoVistaEntradas.txtCantidadEmpanadasMorocho.addKeyListener(this);
+        objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         
     }
- 
-    public ControladorRestaurante(FrmConfirmacion confirmacion,PedidosDAO dao ){
-        objetoVistaConfirmacion = confirmacion;
-        pedDAO= dao;
-        objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
-        objetoVistaConfirmacion.btnEliminar.addActionListener(this);
-    }
+    
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -244,13 +248,16 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoPerfil.setVisible(false);
             menu.setVisible(true);
         }
-        
+        if(e.getSource()==menu.btnConfirmacionPedidos){
+            menu.setVisible(false);
+            objetoVistaConfirmacion.setVisible(true);
+            objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setText(menu.txtNumeroPedido.getText());
+        }
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
             objetoVistaBebidas.setVisible(true);
             objetoVistaBebidas.txtPedidoBebidas.setText(menu.txtNumeroPedido.getText());
         }
-        
         if(e.getSource()==menu.btnEntrada){
             menu.setVisible(false);
             objetoVistaEntradas.setVisible(true);
@@ -372,6 +379,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad),precio,valueOf(total));
                 pedDAO.insertarPedidos(objPed);
             }
+        }
+        if(e.getSource()==objetoVistaEntradas.btnRegresarEntrada){
+            objetoVistaEntradas.setVisible(false);
+            menu.setVisible(true);
         }
 
         if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
