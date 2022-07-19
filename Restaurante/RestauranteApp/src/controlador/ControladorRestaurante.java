@@ -18,6 +18,7 @@ import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.PlatoDAO;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import vista.FrmEscogeTuSabor;
@@ -25,6 +26,8 @@ import vista.FrmLogin;
 import vista.FrmMenu;
 import vista.FrmPerfil;
 import vista.FrmRegistrar;
+import vista.FrmVerIngredientes;
+import vista.FrmVisualisarInformacionPedido;
 
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
@@ -33,7 +36,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmEntradas objetoVistaEntradas= new FrmEntradas();
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
-    FrmConfirmacion objetoVistaConfirmacion= new FrmConfirmacion();
+    FrmConfirmacion objetoVistaConfirmacion;
     UsuarioDAO objetoDAO= new UsuarioDAO();
     FrmRegistrar objetoRegistrar=new FrmRegistrar();
     FrmLogin objetoLogin = new FrmLogin();
@@ -42,7 +45,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
     Usuario objetoUsuario= new Usuario();
     
-    //Camilo
+    FrmVerIngredientes objetoVistaIngredientes;
+    FrmVisualisarInformacionPedido objetoVistaFactura;
+    PlatoDAO platodao;
+//Camilo
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
             FrmLogin frmLogin, 
@@ -51,7 +57,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             UsuarioDAO usuarioDao,
             FrmPerfil frmPerfil,
             FrmBebidas frmBebidas,
-            PedidosDAO pedidosDAO
+            PedidosDAO pedidosDAO,
+            FrmConfirmacion confirmacion,
+            FrmVisualisarInformacionPedido factura,
+            FrmVerIngredientes ingrediente,
+            PlatoDAO plato
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
@@ -112,6 +122,19 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
         
         this.pedDAO = pedidosDAO;
+        
+        
+        this.objetoVistaConfirmacion = confirmacion;
+        this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
+        this.objetoVistaConfirmacion.btnEliminar.addActionListener(this);
+        
+       this.objetoVistaFactura = factura;
+       this.objetoVistaFactura.btnVerIngredientes.addActionListener(this);
+       
+       this.objetoVistaIngredientes = ingrediente ;
+        this.platodao= plato;
+        this.objetoVistaIngredientes.txaIngredientes.addKeyListener(this);
+       
     }
     
     
@@ -165,12 +188,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         
     }
-    public ControladorRestaurante(FrmConfirmacion confirmacion,PedidosDAO dao ){
-        objetoVistaConfirmacion = confirmacion;
-        pedDAO= dao;
-        objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
-        objetoVistaConfirmacion.btnEliminar.addActionListener(this);
-    }
+    
+    
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -390,6 +409,35 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }else{
                 JOptionPane.showMessageDialog(null, "Debe seleccionar una fila a eliminar");
             }
+        }
+        if(e.getSource()==objetoVistaConfirmacion.btnConfirmar){
+            float total=0;
+           String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+           objetoVistaFactura.nombreCliente.setText(objetoVistaConfirmacion.txtNombreCliente.getText());
+           objetoVistaFactura.numeroPedido.setText(objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText());
+           DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaFactura.jtFactura.setModel(modeloT);
+            modeloT.addColumn("Descripcion");
+            modeloT.addColumn("Cantidad");
+            modeloT.addColumn("Precio");
+            modeloT.addColumn("Total");
+            Object [] columna= new Object[4];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                columna[0]=ped.getNombrePedido();
+                columna[1]=ped.getCantidad();
+                columna[2]= ped.getPrecio();
+                columna[3]= ped.getTotal();
+                total = total + Float.parseFloat(ped.getTotal());
+                modeloT.addRow(columna);
+                
+            }
+            objetoVistaFactura.labelTotal.setText(Float.toString(total));
+            objetoVistaConfirmacion.setVisible(false);
+            objetoVistaFactura.setVisible(true);
+            
         }
     }
 
