@@ -23,6 +23,7 @@ import vista.FrmEscogeTuSabor;
 import vista.FrmFuerte;
 import vista.FrmLogin;
 import vista.FrmMenu;
+import vista.FrmPerfil;
 import vista.FrmPostre;
 import vista.FrmVisualisarInformacionPedido;
 
@@ -30,26 +31,29 @@ public class GestorRestaurante {
     //Camilo 
      public static void main(String args[]){
          
-        FrmLogin lo= new FrmLogin();
-        FrmRegistrar re= new FrmRegistrar();
-        FrmBebidas be = new FrmBebidas();
-        FrmConfirmacion co= new FrmConfirmacion();
-        FrmMenu menu = new FrmMenu();
-        ControladorRestaurante controladorMenu= new ControladorRestaurante(menu);
-        PedidosDAO ped= new PedidosDAO();
-        FrmPostre postre= new FrmPostre();
-        UsuarioDAO usu= new UsuarioDAO();
-        FrmEscogeTuSabor m2= new FrmEscogeTuSabor();
-        ControladorRestaurante c3= new ControladorRestaurante(lo,usu);
-        ControladorRestaurante c4= new ControladorRestaurante(co,ped);
-
-        ControladorRestaurante c5= new ControladorRestaurante(be,ped);
-        lo.setVisible(true);
-        ControladorRestaurante c6= new ControladorRestaurante(postre,ped);
+        FrmEscogeTuSabor menuPrimario= new FrmEscogeTuSabor();
+        FrmRegistrar r = new FrmRegistrar();
+        FrmLogin login = new FrmLogin();
+        FrmMenu menuSecundario = new FrmMenu();
+        UsuarioDAO dao = new UsuarioDAO();
+        FrmPerfil perfil = new FrmPerfil();
+        FrmBebidas bebidas = new FrmBebidas();
+        PedidosDAO pedDAO = new PedidosDAO();
+        ControladorRestaurante c = new ControladorRestaurante(
+                menuPrimario, 
+                login, 
+                r, 
+                menuSecundario, 
+                dao,
+                perfil,
+                bebidas,
+                pedDAO
+        );
+        menuPrimario.setVisible(true);
+     };
 
 
      }
 
     
 
-}

@@ -48,7 +48,7 @@ public class FrmMenu extends javax.swing.JFrame {
         miVersion = new javax.swing.JMenuItem();
         mHistorial = new javax.swing.JMenu();
         JMPerfil = new javax.swing.JMenu();
-        perfil = new javax.swing.JMenuItem();
+        miPerfil = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,14 +211,14 @@ public class FrmMenu extends javax.swing.JFrame {
 
         JMPerfil.setText("Perfil");
 
-        perfil.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        perfil.setText("Información");
-        perfil.addActionListener(new java.awt.event.ActionListener() {
+        miPerfil.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miPerfil.setText("Información");
+        miPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                perfilActionPerformed(evt);
+                miPerfilActionPerformed(evt);
             }
         });
-        JMPerfil.add(perfil);
+        JMPerfil.add(miPerfil);
 
         jmenuBarRestaurante.add(JMPerfil);
 
@@ -250,12 +250,9 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_miPreguntasActionPerformed
 
-    private void perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilActionPerformed
-        FrmPerfil perfil = new FrmPerfil();
-        this.setVisible(false);
-        perfil.setVisible(true);
-        
-    }//GEN-LAST:event_perfilActionPerformed
+    private void miPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPerfilActionPerformed
+     
+    }//GEN-LAST:event_miPerfilActionPerformed
 
     private void btnBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBebidasActionPerformed
         FrmBebidas bebidas = new FrmBebidas();
@@ -317,9 +314,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jlPostre;
     private javax.swing.JMenuBar jmenuBarRestaurante;
     public javax.swing.JMenu mHistorial;
+    public javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miPreguntas;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JMenuItem miVersion;
-    private javax.swing.JMenuItem perfil;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,8 +14,14 @@ import com.mongodb.DBObject;
  * @author Jeimy
  */
 public class UsuarioDAO {
-    public void insertarUsuario(Usuario p){
-        Conexion objCon=new Conexion();
+    
+    private Conexion objCon;
+    
+    public UsuarioDAO() {
+        objCon=new Conexion();
+    }
+    
+    public void insertarUsuario(Usuario p){ 
         BasicDBObject documento= new BasicDBObject();
         documento.put("nombre", p.getNombre());
         documento.put("apellido", p.getApellido());
@@ -28,8 +34,31 @@ public class UsuarioDAO {
         documento.put("año", p.getAño());
         objCon.coleccion.insert(documento);
     }
+    
+    public Usuario obtenerUsuario(String id) {
+       DBCursor cursor = objCon.coleccion.find();
+       
+       while (cursor.hasNext()){
+           DBObject dbObject = cursor.next();
+           if (((String)dbObject.get("id")).equals(id)){
+               return new Usuario(
+                       (String)dbObject.get("nombre"),
+                       (String)dbObject.get("apellido"),
+                       (String)dbObject.get("id"),
+                       (String)dbObject.get("contraseña"),
+                       (String)dbObject.get("email"),
+                       (String)dbObject.get("numeroCelular"),
+                       (String)dbObject.get("dia"),
+                       (String)dbObject.get("mes"),
+                       (String)dbObject.get("año")
+               );
+           }
+       }
+       
+       throw new IllegalArgumentException();
+    }
+    
    public boolean validarLogin(String id,String contraseña){
-       Conexion objCon = new Conexion();
        Usuario aux = new Usuario();
        DBCursor cursor = objCon.coleccion.find();
        boolean abrir= false;

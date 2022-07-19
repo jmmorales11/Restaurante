@@ -27,8 +27,8 @@ import vista.FrmRegistrar;
 
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
-    PedidosDAO pedDAO= new PedidosDAO();
-    FrmBebidas objetoVistaBebidas= new FrmBebidas();
+    PedidosDAO pedDAO;
+    FrmBebidas objetoVistaBebidas;
     FrmEntradas objetoVistaEntradas= new FrmEntradas();
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
@@ -42,67 +42,72 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     Usuario objetoUsuario= new Usuario();
     
     //Camilo
-    public ControladorRestaurante(FrmEscogeTuSabor vista){
+    public ControladorRestaurante(
+            FrmEscogeTuSabor vista, 
+            FrmLogin frmLogin, 
+            FrmRegistrar frmRegistrar,
+            FrmMenu frmMenu,
+            UsuarioDAO usuarioDao,
+            FrmPerfil frmPerfil,
+            FrmBebidas frmBebidas,
+            PedidosDAO pedidosDAO
+    ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
         menu2.miLogin.addActionListener(this);
+        
+        this.objetoLogin = frmLogin;
+        this.objetoLogin.btnLogin.addActionListener(this);
+        this.objetoLogin.btnCancelar.addActionListener(this);
+        this.objetoLogin.txtID.addKeyListener(this);
+        this.objetoLogin.txtContraseña.addKeyListener(this);
+        
+        this.objetoRegistrar= frmRegistrar;
+        this.objetoRegistrar.btnRegistrar.addActionListener(this);
+        this.objetoRegistrar.btnLogin.addActionListener(this);
+        this.objetoRegistrar.txtNombre.addKeyListener(this);
+        this.objetoRegistrar.txtApellido.addKeyListener(this);
+        this.objetoRegistrar.txtID.addKeyListener(this);
+        this.objetoRegistrar.txtContraseña.addKeyListener(this);
+        this.objetoRegistrar.txtRepetirContraseña.addKeyListener(this);
+        this.objetoRegistrar.txtEmail.addKeyListener(this);
+        this.objetoRegistrar.txtNumeroCelular.addKeyListener(this);
+        this.objetoRegistrar.txtDia.addKeyListener(this);
+        this.objetoRegistrar.txtMes.addKeyListener(this);
+        this.objetoRegistrar.txtAño.addKeyListener(this);
+        
+        this.menu = frmMenu;
+        this.menu.miPerfil.addActionListener(this);
+        
+        this.objetoDAO = usuarioDao;
+        
+        this.objetoPerfil = frmPerfil;
+        this.objetoPerfil.btnEditar.addActionListener(this);
+        this.objetoPerfil.btnModificar.addActionListener(this);
+        this.objetoPerfil.txtNombre.addKeyListener(this);
+        this.objetoPerfil.txtApellido.addKeyListener(this);
+        this.objetoPerfil.txtContraseña.addKeyListener(this);
+        this.objetoPerfil.txtEmail.addKeyListener(this);
+        this.objetoPerfil.txtNumeroCelular.addKeyListener(this);
+        this.objetoPerfil.txtDia.addKeyListener(this);
+        this.objetoPerfil.txtMes.addKeyListener(this);
+        this.objetoPerfil.txtAño.addKeyListener(this);
+        
+        this.objetoVistaBebidas=frmBebidas;
+        this.objetoVistaBebidas.rbCoca.addActionListener(this);
+        this.objetoVistaBebidas.txtCoca.addKeyListener(this);
+        this.objetoVistaBebidas.rbFanta.addActionListener(this);
+        this.objetoVistaBebidas.rbSprite.addActionListener(this);
+        this.objetoVistaBebidas.txtSprite.addActionListener(this);
+        this.objetoVistaBebidas.txtPedidoBebidas.addKeyListener(this);
+        this.objetoVistaBebidas.btnAgregarBebidas.addActionListener(this);
+        this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
+        
+        this.pedDAO = pedidosDAO;
     }
-    public ControladorRestaurante(FrmRegistrar vista,UsuarioDAO dao){
-        objetoRegistrar= vista;
-        objetoDAO= dao;
-        objetoRegistrar.btnRegistrar.addActionListener(this);
-        objetoRegistrar.btnLogin.addActionListener(this);
-        objetoRegistrar.txtNombre.addKeyListener(this);
-        objetoRegistrar.txtApellido.addKeyListener(this);
-        objetoRegistrar.txtID.addKeyListener(this);
-        objetoRegistrar.txtContraseña.addKeyListener(this);
-        objetoRegistrar.txtRepetirContraseña.addKeyListener(this);
-        objetoRegistrar.txtEmail.addKeyListener(this);
-        objetoRegistrar.txtNumeroCelular.addKeyListener(this);
-        objetoRegistrar.txtDia.addKeyListener(this);
-        objetoRegistrar.txtMes.addKeyListener(this);
-        objetoRegistrar.txtAño.addKeyListener(this);
-    }
-    public ControladorRestaurante(FrmLogin vista,UsuarioDAO dao){
-        objetoLogin = vista;
-        objetoDAO= dao;
-        objetoLogin.btnLogin.addActionListener(this);
-        objetoLogin.btnCancelar.addActionListener(this);
-        objetoLogin.txtID.addKeyListener(this);
-        objetoLogin.txtContraseña.addKeyListener(this);
-    }
-
-    public ControladorRestaurante(FrmPerfil vista,UsuarioDAO dao){
-        objetoPerfil = vista;
-        objetoDAO= dao;
-        objetoPerfil.btnEditar.addActionListener(this);
-        objetoPerfil.btnModificar.addActionListener(this);
-        objetoPerfil.txtNombre.addKeyListener(this);
-        objetoPerfil.txtApellido.addKeyListener(this);
-        objetoPerfil.txtContraseña.addKeyListener(this);
-        objetoPerfil.txtEmail.addKeyListener(this);
-        objetoPerfil.txtNumeroCelular.addKeyListener(this);
-        objetoPerfil.txtDia.addKeyListener(this);
-        objetoPerfil.txtMes.addKeyListener(this);
-        objetoPerfil.txtAño.addKeyListener(this);
-    }
-
+    
     
 //Jeimy no tocar 
-
-    public ControladorRestaurante(FrmBebidas vistab ,PedidosDAO dao ) {
-        objetoVistaBebidas=vistab;
-        pedDAO= dao;
-        objetoVistaBebidas.rbCoca.addActionListener(this);
-        objetoVistaBebidas.txtCoca.addKeyListener(this);
-        objetoVistaBebidas.rbFanta.addActionListener(this);
-        objetoVistaBebidas.rbSprite.addActionListener(this);
-        objetoVistaBebidas.txtSprite.addActionListener(this);
-        objetoVistaBebidas.txtPedidoBebidas.addKeyListener(this);
-        objetoVistaBebidas.btnAgregarBebidas.addActionListener(this);
-        objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
-        
-    }
     public ControladorRestaurante(FrmPostre vistap ,PedidosDAO dao ) {
         objetoVistaPostre = vistap;
         pedDAO= dao;
@@ -196,17 +201,42 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 String año= objetoRegistrar.txtAño.getText();
                 Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
                 objetoDAO.insertarUsuario(objetoUsuario);
+                
         }
+        if(e.getSource()==objetoRegistrar.btnLogin){
+            objetoRegistrar.setVisible(false);
+            objetoLogin.setVisible(true);
+        }
+
         if(e.getSource()== objetoLogin.btnLogin){
                 String id = "";
                 String contraseña = "";
                 id=objetoLogin.txtID.getText();
                 contraseña=objetoLogin.txtContraseña.getText();
                 if(objetoDAO.validarLogin(id, contraseña)){
+                    objetoUsuario = objetoDAO.obtenerUsuario(id);
                     objetoLogin.setVisible(false);
                     menu.setVisible(true);
                 }
             }
+        
+        if(e.getSource()==menu.miPerfil){
+            menu.setVisible(false);
+            objetoPerfil.setVisible(true);
+            objetoPerfil.txtNombre.setText(objetoUsuario.getNombre());
+            objetoPerfil.txtApellido.setText(objetoUsuario.getApellido());
+            objetoPerfil.txtContraseña.setText(objetoUsuario.getContraseña());
+            objetoPerfil.txtEmail.setText(objetoUsuario.getEmail());
+            objetoPerfil.txtNumeroCelular.setText(objetoUsuario.getNumeroCelular());
+            objetoPerfil.txtDia.setText(objetoUsuario.getDia());
+            objetoPerfil.txtMes.setText(objetoUsuario.getMes());
+            objetoPerfil.txtAño.setText(objetoUsuario.getAño());
+        }
+        
+        if(e.getSource()==objetoPerfil.btnMenu){
+            objetoPerfil.setVisible(false);
+            menu.setVisible(true);
+        }
             
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
