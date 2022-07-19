@@ -53,9 +53,6 @@ public class GestorRestaurante {
                 entradas
         );
         menuPrimario.setVisible(true);
-     
-     ControladorRestaurante c1 = new ControladorRestaurante(frmConfirmar,pedDAO);
-     frmConfirmar.setVisible(true);
      };
      }
 
