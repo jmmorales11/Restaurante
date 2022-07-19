@@ -40,6 +40,7 @@ public class GestorRestaurante {
         FrmPerfil perfil = new FrmPerfil();
         FrmBebidas bebidas = new FrmBebidas();
         PedidosDAO pedDAO = new PedidosDAO();
+        FrmEntradas entradas = new FrmEntradas();
         FrmConfirmacion frmConfirmar = new FrmConfirmacion();
         FrmVisualisarInformacionPedido factura = new FrmVisualisarInformacionPedido();
         FrmVerIngredientes ingrediente = new FrmVerIngredientes ();
@@ -56,15 +57,17 @@ public class GestorRestaurante {
                 frmConfirmar,
                 factura,
                 ingrediente,
-                plato
+                plato,
+                entradas
         );
         //menuPrimario.setVisible(true);
-     
-     
+
      frmConfirmar.setVisible(true);
      
      FrmVerIngredientes ing = new FrmVerIngredientes();
     // ControladorRestaurante c2 = new ControladorRestaurante(ing);
+
+        menuPrimario.setVisible(true);
      };
      }
 

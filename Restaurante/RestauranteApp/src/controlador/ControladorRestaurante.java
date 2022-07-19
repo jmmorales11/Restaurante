@@ -1,4 +1,4 @@
-//Este sirve 23:36 repositorio
+//Este sirve 19/7/2022  11.10
 package controlador;
 
 import vista.FrmConfirmacion;
@@ -33,7 +33,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
     PedidosDAO pedDAO;
     FrmBebidas objetoVistaBebidas;
-    FrmEntradas objetoVistaEntradas= new FrmEntradas();
+    FrmEntradas objetoVistaEntradas;
     FrmFuerte objetoVistaFuerte= new FrmFuerte();
     FrmPostre objetoVistaPostre= new FrmPostre();
     FrmConfirmacion objetoVistaConfirmacion;
@@ -44,7 +44,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmMenu menu = new FrmMenu();
     FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
     Usuario objetoUsuario= new Usuario();
-    
     FrmVerIngredientes objetoVistaIngredientes;
     FrmVisualisarInformacionPedido objetoVistaFactura;
     PlatoDAO platodao;
@@ -61,7 +60,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             FrmConfirmacion confirmacion,
             FrmVisualisarInformacionPedido factura,
             FrmVerIngredientes ingrediente,
-            PlatoDAO plato
+            PlatoDAO plato,
+            FrmEntradas frmEntradas
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
@@ -95,6 +95,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.menu.btnPostre.addActionListener(this);
         this.menu.mHistorial.addActionListener(this);
         this.menu.txtNumeroPedido.addKeyListener(this);
+        this.menu.btnConfirmacionPedidos.addActionListener(this);
         
         this.objetoDAO = usuarioDao;
         
@@ -119,10 +120,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaBebidas.txtPedidoBebidas.addKeyListener(this);
         this.objetoVistaBebidas.btnAgregarBebidas.addActionListener(this);
         this.objetoVistaBebidas.btnRegresar.addActionListener(this);
-        this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
+        
         
         this.pedDAO = pedidosDAO;
         
+
         
         this.objetoVistaConfirmacion = confirmacion;
         this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
@@ -134,7 +136,19 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
        this.objetoVistaIngredientes = ingrediente ;
         this.platodao= plato;
         this.objetoVistaIngredientes.txaIngredientes.addKeyListener(this);
-       
+
+        
+        
+        this.objetoVistaEntradas = frmEntradas;
+        this.objetoVistaEntradas.btnAgregarEntrada.addActionListener(this);
+        this.objetoVistaEntradas.rbBolonVerde.addActionListener(this);
+        this.objetoVistaEntradas.rbEmpanadaMorocho.addActionListener(this);
+        this.objetoVistaEntradas.rbPanYuca.addActionListener(this);
+        this.objetoVistaEntradas.txtCantidadBolon.addKeyListener(this);
+        this.objetoVistaEntradas.txtCantidadEmpanadasMorocho.addKeyListener(this);
+        this.objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
+        this.objetoVistaEntradas.btnRegresarEntrada.addActionListener(this);
+
     }
     
     
@@ -167,15 +181,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaFuerte.jlEncebollado.addKeyListener(this);
         
     }
-    public  ControladorRestaurante(FrmMenu menu1 ){
-        menu= menu1;
-        menu.btnBebidas.addActionListener(this);
-        menu.btnEntrada.addActionListener(this);
-        menu.btnFuerte.addActionListener(this);
-        menu.btnPostre.addActionListener(this);
-        menu.mHistorial.addActionListener(this);
-        
-    }
+    
     public ControladorRestaurante(FrmEntradas vistaE,PedidosDAO dao ){
         objetoVistaEntradas = vistaE;
         pedDAO= dao;
@@ -188,7 +194,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         
     }
-    
     
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
@@ -264,11 +269,20 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoPerfil.setVisible(false);
             menu.setVisible(true);
         }
-        
+        if(e.getSource()==menu.btnConfirmacionPedidos){
+            menu.setVisible(false);
+            objetoVistaConfirmacion.setVisible(true);
+            objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setText(menu.txtNumeroPedido.getText());
+        }
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
             objetoVistaBebidas.setVisible(true);
             objetoVistaBebidas.txtPedidoBebidas.setText(menu.txtNumeroPedido.getText());
+        }
+        if(e.getSource()==menu.btnEntrada){
+            menu.setVisible(false);
+            objetoVistaEntradas.setVisible(true);
+            objetoVistaEntradas.txtPedidoEntrada.setText(menu.txtNumeroPedido.getText());
         }
             
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
@@ -373,19 +387,23 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             if(objetoVistaEntradas.rbEmpanadaMorocho.getLabel().equalsIgnoreCase("Empanadas de morocho")){
                 String nombrePed=objetoVistaEntradas.rbEmpanadaMorocho.getLabel();
                 String cantidad= objetoVistaEntradas.txtCantidadEmpanadasMorocho.getText();
-                String precio=objetoVistaEntradas.rbEmpanadaMorocho.getText();
-                float total = Integer.parseInt(cantidad)*Float.parseFloat(objetoVistaEntradas.rbEmpanadaMorocho.getText());
+                String precio=objetoVistaEntradas.jlPrecioEmpanadas.getText();
+                float total = Integer.parseInt(cantidad)*Float.parseFloat(objetoVistaEntradas.jlPrecioEmpanadas.getText());
                 Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad),precio,valueOf(total));
                 pedDAO.insertarPedidos(objPed);
             }
             if(objetoVistaEntradas.rbPanYuca.getLabel().equalsIgnoreCase("Pan de Yuca")){
                 String nombrePed=objetoVistaEntradas.rbPanYuca.getLabel();
-                String cantidad= objetoVistaEntradas.txtCantidadEmpanadasMorocho.getText();
+                String cantidad= objetoVistaEntradas.txtCantidadPan.getText();
                 String precio=objetoVistaEntradas.jlPanYuca.getText();
                 float total = Integer.parseInt(cantidad)*Float.parseFloat(objetoVistaEntradas.jlPanYuca.getText());
                 Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad),precio,valueOf(total));
                 pedDAO.insertarPedidos(objPed);
             }
+        }
+        if(e.getSource()==objetoVistaEntradas.btnRegresarEntrada){
+            objetoVistaEntradas.setVisible(false);
+            menu.setVisible(true);
         }
 
         if(e.getSource()==objetoVistaConfirmacion.btnEliminar){
