@@ -252,19 +252,42 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu.setVisible(false);
             objetoVistaConfirmacion.setVisible(true);
             objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setText(menu.txtNumeroPedido.getText());
+            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+            DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
+            modeloT.addColumn("Descripcion");
+            modeloT.addColumn("Cantidad");
+            modeloT.addColumn("Precio");
+            modeloT.addColumn("Total");
+            Object [] columna= new Object[4];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                columna[0]=ped.getNombrePedido();
+                columna[1]=ped.getCantidad();
+                columna[2]= ped.getPrecio();
+                columna[3]= ped.getTotal();
+                modeloT.addRow(columna);
+            }
+            objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setEditable(false);
+
         }
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
             objetoVistaBebidas.setVisible(true);
             objetoVistaBebidas.txtPedidoBebidas.setText(menu.txtNumeroPedido.getText());
+            objetoVistaBebidas.txtPedidoBebidas.setEditable(false);
         }
         if(e.getSource()==menu.btnEntrada){
             menu.setVisible(false);
             objetoVistaEntradas.setVisible(true);
             objetoVistaEntradas.txtPedidoEntrada.setText(menu.txtNumeroPedido.getText());
+            
         }
             
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
+            
             String numPedido=objetoVistaBebidas.txtPedidoBebidas.getText();
             if(objetoVistaBebidas.rbCoca.getLabel().equalsIgnoreCase("Coca cola")){
                 String nombrePed=objetoVistaBebidas.rbCoca.getLabel();
@@ -513,25 +536,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
 
     @Override
     public void keyReleased(KeyEvent e) {
-       if(e.getSource()==objetoVistaConfirmacion.txtBuscarPedidoconfirmacion){
-           String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
-           DefaultTableModel modeloT= new DefaultTableModel();
-            objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
-            modeloT.addColumn("Descripcion");
-            modeloT.addColumn("Cantidad");
-            modeloT.addColumn("Precio");
-            modeloT.addColumn("Total");
-            Object [] columna= new Object[4];
-            int numReg= pedDAO.buscarPedido(pedido).size();
-            for(int i=0;i<numReg;i++){
-                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
-                System.out.println(ped);
-                columna[0]=ped.getNombrePedido();
-                columna[1]=ped.getCantidad();
-                columna[2]= ped.getPrecio();
-                columna[3]= ped.getTotal();
-                modeloT.addRow(columna);
-            }
-       }
+       
     }  
 }
