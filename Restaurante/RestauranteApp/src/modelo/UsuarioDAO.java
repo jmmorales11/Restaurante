@@ -84,7 +84,23 @@ public class UsuarioDAO {
         objCon.coleccion.update(buscado, dia);
         objCon.coleccion.update(buscado, mes);
         objCon.coleccion.update(buscado, anio);
-
+//        DBObject nombreNuevo = new BasicDBObject ("nombre", nombre);
+//        DBObject apellidoNuevo = new BasicDBObject ("apellido", apellido);
+//        DBObject nuevo= new BasicDBObject().append("$set", new BasicDBObject().append("id", id));
+//        DBObject contraseñaNuevo = new BasicDBObject ("contraseña", contraseña);
+//        DBObject emailNuevo = new BasicDBObject ("email", email);
+//        DBObject numeroCelularNuevo = new BasicDBObject ("numeroCelular", numeroCelular);
+//        DBObject diaNuevo = new BasicDBObject ("dia", dia);
+//        DBObject mesNuevo = new BasicDBObject ("mes", mes);
+//        DBObject añoNuevo = new BasicDBObject ("año", año);
+//        objCon.coleccion.update(nombreNuevo,nuevo);
+//        objCon.coleccion.update(apellidoNuevo, nuevo);
+//        objCon.coleccion.update(contraseñaNuevo, nuevo);
+//        objCon.coleccion.update(emailNuevo, nuevo);
+//        objCon.coleccion.update(numeroCelularNuevo, nuevo);
+//        objCon.coleccion.update(diaNuevo, nuevo);
+//        objCon.coleccion.update(mesNuevo, nuevo);
+//        objCon.coleccion.update(buscado, nuevo);
     }
     
    public boolean validarLogin(String id,String contraseña){

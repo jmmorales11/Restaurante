@@ -35,8 +35,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     PedidosDAO pedDAO;
     FrmBebidas objetoVistaBebidas;
     FrmEntradas objetoVistaEntradas;
-    FrmFuerte objetoVistaFuerte= new FrmFuerte();
-    FrmPostre objetoVistaPostre= new FrmPostre();
+    FrmFuerte objetoVistaFuerte;
+    FrmPostre objetoVistaPostre;
     FrmConfirmacion objetoVistaConfirmacion;
     UsuarioDAO objetoDAO= new UsuarioDAO();
     FrmRegistrar objetoRegistrar=new FrmRegistrar();
@@ -63,7 +63,9 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             FrmVisualisarInformacionPedido factura,
             FrmVerIngredientes ingrediente,
             PlatoDAO plato,
-            FrmEntradas frmEntradas
+            FrmEntradas frmEntradas,
+            FrmFuerte frmFuertes,
+            FrmPostre frmPostre
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
@@ -151,51 +153,34 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
         this.objetoVistaEntradas.btnRegresarEntrada.addActionListener(this);
 
-    }
-    
-    
-//Jeimy no tocar 
-    public ControladorRestaurante(FrmPostre vistap ,PedidosDAO dao ) {
-        objetoVistaPostre = vistap;
-        pedDAO= dao;
-        objetoVistaPostre.rbCoco.addActionListener(this);
-        objetoVistaPostre.rbDulceGuayaba.addActionListener(this);
-        objetoVistaPostre.rbEspumillaNaranjilla.addActionListener(this);
-        objetoVistaPostre.btnAgregarPostre.addActionListener(this);
-        objetoVistaPostre.txtCantidadCoco.addKeyListener(this);
-        objetoVistaPostre.txtCantidadDGuayaba.addKeyListener(this);
-        objetoVistaPostre.txtCatidadEspumilla.addKeyListener(this);
-        objetoVistaPostre.txtPedidoPostre.addKeyListener(this);
-    }
-    
-    public ControladorRestaurante(FrmFuerte vistaF,PedidosDAO dao ){
-        objetoVistaFuerte = vistaF;
-        pedDAO= dao;
-        objetoVistaFuerte.rbArroz.addActionListener(this);
-        objetoVistaFuerte.rbChurrasco.addActionListener(this);
-        objetoVistaFuerte.rbEncebollado.addActionListener(this);
-        objetoVistaFuerte.txtCantidadArroz.addKeyListener(this);
-        objetoVistaFuerte.txtCantidadChurrasco.addKeyListener(this);
-        objetoVistaFuerte.txtCantidadEncebollado.addKeyListener(this);
-        objetoVistaFuerte.btnAgregarFuerte.addActionListener(this);
-        objetoVistaFuerte.jlArrosPrecio.addKeyListener(this);
-        objetoVistaFuerte.jlChurrascoPrecio.addKeyListener(this);
-        objetoVistaFuerte.jlEncebollado.addKeyListener(this);
+        this.objetoVistaFuerte=frmFuertes;
+        this.objetoVistaFuerte.rbArroz.addActionListener(this);
+        this.objetoVistaFuerte.rbChurrasco.addActionListener(this);
+        this.objetoVistaFuerte.rbEncebollado.addActionListener(this);
+        this.objetoVistaFuerte.txtCantidadArroz.addKeyListener(this);
+        this.objetoVistaFuerte.txtCantidadChurrasco.addKeyListener(this);
+        this.objetoVistaFuerte.txtCantidadEncebollado.addKeyListener(this);
+        this.objetoVistaFuerte.btnAgregarFuerte.addActionListener(this);
+        this.objetoVistaFuerte.jlArrosPrecio.addKeyListener(this);
+        this.objetoVistaFuerte.jlChurrascoPrecio.addKeyListener(this);
+        this.objetoVistaFuerte.jlEncebollado.addKeyListener(this);
+        this.objetoVistaFuerte.btnRegresar.addActionListener(this);
         
+        this.objetoVistaPostre=frmPostre;
+        this.objetoVistaPostre.rbCoco.addActionListener(this);
+        this.objetoVistaPostre.rbDulceGuayaba.addActionListener(this);
+        this.objetoVistaPostre.rbEspumillaNaranjilla.addActionListener(this);
+        this.objetoVistaPostre.btnAgregarPostre.addActionListener(this);
+        this.objetoVistaPostre.txtCantidadCoco.addKeyListener(this);
+        this.objetoVistaPostre.txtCantidadDGuayaba.addKeyListener(this);
+        this.objetoVistaPostre.txtCatidadEspumilla.addKeyListener(this);
+        this.objetoVistaPostre.txtPedidoPostre.addKeyListener(this);
+        this.objetoVistaPostre.btnRegresar.addActionListener(this);
     }
+
     
-    public ControladorRestaurante(FrmEntradas vistaE,PedidosDAO dao ){
-        objetoVistaEntradas = vistaE;
-        pedDAO= dao;
-        objetoVistaEntradas.btnAgregarEntrada.addActionListener(this);
-        objetoVistaEntradas.rbBolonVerde.addActionListener(this);
-        objetoVistaEntradas.rbEmpanadaMorocho.addActionListener(this);
-        objetoVistaEntradas.rbPanYuca.addActionListener(this);
-        objetoVistaEntradas.txtCantidadBolon.addKeyListener(this);
-        objetoVistaEntradas.txtCantidadEmpanadasMorocho.addKeyListener(this);
-        objetoVistaEntradas.txtCantidadPan.addKeyListener(this);
-        
-    }
+    
+   
     
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
@@ -375,7 +360,19 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu.setVisible(false);
             objetoVistaEntradas.setVisible(true);
             objetoVistaEntradas.txtPedidoEntrada.setText(menu.txtNumeroPedido.getText());
-            
+            objetoVistaEntradas.txtPedidoEntrada.setEditable(false);
+        }
+        if(e.getSource()==menu.btnFuerte){
+            menu.setVisible(false);
+            objetoVistaFuerte.setVisible(true);
+            objetoVistaFuerte.txtPedidoFuertes.setText(menu.txtNumeroPedido.getText());
+            objetoVistaFuerte.txtPedidoFuertes.setEditable(false);
+        }
+        if(e.getSource()==menu.btnPostre){
+            menu.setVisible(false);
+            objetoVistaPostre.setVisible(true);
+            objetoVistaPostre.txtPedidoPostre.setText(menu.txtNumeroPedido.getText());
+            objetoVistaPostre.txtPedidoPostre.setEditable(false);
         }
             
         if(e.getSource()==objetoVistaBebidas.btnAgregarBebidas){
@@ -441,6 +438,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                  pedDAO.insertarPedidos(objPed);
             }
         }
+        if(e.getSource()==objetoVistaPostre.btnRegresar){
+            objetoVistaPostre.setVisible(false);
+            menu.setVisible(true);
+        }
         if(e.getSource()==objetoVistaFuerte.btnAgregarFuerte){
             String numPedido=objetoVistaFuerte.txtPedidoFuertes.getText();
             if(objetoVistaFuerte.rbArroz.getLabel().equalsIgnoreCase("Arroz con Conchas")){ 
@@ -467,6 +468,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                Pedido objPed= new Pedido(numPedido,nombrePed, Integer.parseInt(cantidad),precio,valueOf(total));
                 pedDAO.insertarPedidos(objPed);
             }
+        }
+        if(e.getSource()==objetoVistaFuerte.btnRegresar){
+            objetoVistaFuerte.setVisible(false);
+            menu.setVisible(true);
         }
         if(e.getSource()==objetoVistaEntradas.btnAgregarEntrada){
             String numPedido=objetoVistaEntradas.txtPedidoEntrada.getText();
