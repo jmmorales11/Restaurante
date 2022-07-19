@@ -33,11 +33,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
-=======
-              <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
->>>>>>> 078bca2aeb6667c5dfa53bc626ca800bf059866a
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,7 +44,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                   <Component id="btnregresar" min="-2" max="-2" attributes="0"/>
@@ -80,25 +75,6 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-=======
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="322" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="btnregresar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
->>>>>>> 078bca2aeb6667c5dfa53bc626ca800bf059866a
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,7 +83,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -126,10 +101,6 @@
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="223" max="-2" attributes="0"/>
-=======
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="304" max="-2" attributes="0"/>
->>>>>>> 078bca2aeb6667c5dfa53bc626ca800bf059866a
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnregresar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
@@ -166,7 +137,6 @@
             </Component>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre del cliente:"/>
@@ -193,8 +163,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-=======
->>>>>>> 078bca2aeb6667c5dfa53bc626ca800bf059866a
       </SubComponents>
     </Container>
   </SubComponents>
