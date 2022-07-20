@@ -20,6 +20,7 @@ public class PedidosDAO {
          Conexion objCon = new Conexion();
         BasicDBObject documento = new BasicDBObject();
         documento.put("nombrePedido", nombrePedido);
+//        documento.put("cantidad", cantidad);
         objCon.coleccionPedido.remove(documento);
     }
     

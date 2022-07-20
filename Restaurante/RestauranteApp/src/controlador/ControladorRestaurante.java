@@ -463,7 +463,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 pedDAO.insertarPedidos(objPed);
             }
             if(objetoVistaFuerte.rbEncebollado.getLabel().equalsIgnoreCase("Encebollado")){
-                String nombrePed=objetoVistaFuerte.rbChurrasco.getLabel();
+                String nombrePed=objetoVistaFuerte.rbEncebollado.getLabel();
                 String cantidad= objetoVistaFuerte.txtCantidadEncebollado.getText();
                 String precio=objetoVistaFuerte.jlEncebollado.getText();
                 float total = Integer.parseInt(cantidad)*Float.parseFloat(objetoVistaFuerte.jlEncebollado.getText());

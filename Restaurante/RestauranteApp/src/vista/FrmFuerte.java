@@ -135,7 +135,7 @@ public class FrmFuerte extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Cooper Black", 0, 10)); // NOI18N
         jLabel11.setText("Precio: $");
 
-        btnAgregarFuerte.setBackground(new java.awt.Color(153, 153, 255));
+        btnAgregarFuerte.setBackground(new java.awt.Color(169, 204, 227));
         btnAgregarFuerte.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         btnAgregarFuerte.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarFuerte.setText("Agregar");
@@ -264,7 +264,7 @@ public class FrmFuerte extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(176, 196, 222));
 
-        btnRegresar.setBackground(new java.awt.Color(204, 204, 255));
+        btnRegresar.setBackground(new java.awt.Color(169, 204, 227));
         btnRegresar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setText("Regresar");

@@ -121,7 +121,7 @@ public class FrmBebidas extends javax.swing.JFrame {
 
         txtSprite.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
 
-        btnAgregarBebidas.setBackground(new java.awt.Color(153, 153, 255));
+        btnAgregarBebidas.setBackground(new java.awt.Color(209, 196, 233));
         btnAgregarBebidas.setFont(new java.awt.Font("Cooper Black", 1, 14)); // NOI18N
         btnAgregarBebidas.setText("Agregar");
         btnAgregarBebidas.addActionListener(new java.awt.event.ActionListener() {
@@ -293,7 +293,7 @@ public class FrmBebidas extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(244, 236, 247));
 
-        btnRegresar.setBackground(new java.awt.Color(153, 153, 255));
+        btnRegresar.setBackground(new java.awt.Color(209, 196, 233));
         btnRegresar.setFont(new java.awt.Font("Cooper Black", 1, 14)); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {

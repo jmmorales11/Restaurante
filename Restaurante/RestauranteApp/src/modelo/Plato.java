@@ -1,6 +1,5 @@
 
 package modelo;
-// kleber 
 
 import java.util.ArrayList;
 import java.util.Iterator;
