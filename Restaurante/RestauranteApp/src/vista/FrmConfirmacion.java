@@ -140,7 +140,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
 
         btnConfirmar.setBackground(new java.awt.Color(230, 176, 170));
         btnConfirmar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        btnConfirmar.setText("Agregar");
+        btnConfirmar.setText("Aceptar");
         btnConfirmar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
