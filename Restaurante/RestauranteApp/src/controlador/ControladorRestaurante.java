@@ -42,7 +42,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     UsuarioDAO objetoDAO= new UsuarioDAO();
     FrmRegistrar objetoRegistrar=new FrmRegistrar();
     FrmLogin objetoLogin = new FrmLogin();
-    FrmPerfil objetoPerfil = new FrmPerfil();
+    FrmPerfil objetoPerfil;
     FrmMenu menu = new FrmMenu();
     FrmEscogeTuSabor menu2 = new FrmEscogeTuSabor();
     Usuario objetoUsuario= new Usuario();
@@ -50,7 +50,6 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmVisualisarInformacionPedido objetoVistaFactura;
     PlatoDAO platodao;
     Plato pla= new Plato();
-//Camilo
 
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
@@ -116,6 +115,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoPerfil.txtDia.addKeyListener(this);
         this.objetoPerfil.txtMes.addKeyListener(this);
         this.objetoPerfil.txtAño.addKeyListener(this);
+        this.objetoPerfil.btnMenu.addActionListener(this);
         
         this.objetoVistaBebidas=frmBebidas;
         this.objetoVistaBebidas.rbCoca.addActionListener(this);
@@ -282,8 +282,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoPerfil.txtDia.setEditable(false);
             objetoPerfil.txtMes.setEditable(false);
             objetoPerfil.txtAño.setEditable(false);
-        }
-        
+        }    
         if(e.getSource()==objetoPerfil.btnMenu){
             objetoPerfil.setVisible(false);
             menu.setVisible(true);

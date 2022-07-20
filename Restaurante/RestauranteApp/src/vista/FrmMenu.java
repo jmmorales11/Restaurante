@@ -65,8 +65,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jlPostre.setBackground(new java.awt.Color(102, 102, 102));
         jlPostre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/Postre.png"))); // NOI18N
 
-        btnBebidas.setBackground(new java.awt.Color(255, 204, 204));
-        btnBebidas.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        btnBebidas.setBackground(new java.awt.Color(224, 255, 255));
+        btnBebidas.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         btnBebidas.setText("Bebidas");
         btnBebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,8 +74,8 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnEntrada.setBackground(new java.awt.Color(255, 204, 204));
-        btnEntrada.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        btnEntrada.setBackground(new java.awt.Color(224, 255, 255));
+        btnEntrada.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         btnEntrada.setText("Entrada");
         btnEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,29 +83,36 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnFuerte.setBackground(new java.awt.Color(255, 204, 204));
-        btnFuerte.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        btnFuerte.setBackground(new java.awt.Color(224, 255, 255));
+        btnFuerte.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         btnFuerte.setText("Fuerte");
+        btnFuerte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFuerte.setFocusTraversalPolicyProvider(true);
         btnFuerte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFuerteActionPerformed(evt);
             }
         });
 
-        btnPostre.setBackground(new java.awt.Color(255, 204, 204));
-        btnPostre.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        btnPostre.setBackground(new java.awt.Color(224, 255, 255));
+        btnPostre.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         btnPostre.setText("Postre");
 
         jLabel5.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
-        jLabel5.setText("Escoge  ");
+        jLabel5.setText("Escoge tu   ");
 
         jLabel7.setFont(new java.awt.Font("Cooper Black", 1, 48)); // NOI18N
-        jLabel7.setText("tu sabor");
+        jLabel7.setText(" sabor");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/logo.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iimagenes/Restaurantelogo.jpg"))); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         jLabel2.setText("N° Pedido: ");
 
+        txtNumeroPedido.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+
+        btnConfirmacionPedidos.setBackground(new java.awt.Color(224, 255, 255));
+        btnConfirmacionPedidos.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         btnConfirmacionPedidos.setText("Confirmacion Pedido");
         btnConfirmacionPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,14 +125,15 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnBebidas)
-                        .addGap(68, 68, 68)
-                        .addComponent(btnEntrada))
+                        .addGap(60, 60, 60)
+                        .addComponent(btnEntrada)
+                        .addGap(8, 8, 8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jlEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,75 +142,80 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addComponent(jlFuerte, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jlPostre, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(34, Short.MAX_VALUE))
+                        .addContainerGap(27, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(49, 49, 49)
                         .addComponent(btnFuerte)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPostre)
-                        .addGap(57, 57, 57))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
-                .addGap(378, 378, 378))
+                        .addGap(83, 83, 83))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(277, 277, 277)
+                .addComponent(btnConfirmacionPedidos)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(319, 319, 319)
-                        .addComponent(btnConfirmacionPedidos)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(38, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)))
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(22, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(4, 4, 4)
-                            .addComponent(jlBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jlEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlFuerte, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlPostre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBebidas)
-                    .addComponent(btnEntrada)
-                    .addComponent(btnFuerte)
-                    .addComponent(btnPostre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(btnConfirmacionPedidos)
-                .addContainerGap())
+                    .addComponent(jlPostre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jlBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBebidas)
+                        .addComponent(btnEntrada))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnFuerte)
+                        .addComponent(btnPostre)))
+                .addGap(27, 27, 27)
+                .addComponent(btnConfirmacionPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
-        jMAyuda.setBackground(new java.awt.Color(255, 204, 204));
+        jMAyuda.setBackground(new java.awt.Color(70, 130, 180));
+        jMAyuda.setBorder(null);
         jMAyuda.setText("Ayuda");
 
-        miPreguntas.setBackground(new java.awt.Color(255, 204, 204));
+        miPreguntas.setBackground(new java.awt.Color(173, 216, 230));
+        miPreguntas.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miPreguntas.setText("Preguntas");
         miPreguntas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,27 +224,33 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMAyuda.add(miPreguntas);
 
+        miSalir.setBackground(new java.awt.Color(173, 216, 230));
+        miSalir.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miSalir.setText("Salir");
         jMAyuda.add(miSalir);
 
         jmenuBarRestaurante.add(jMAyuda);
 
-        jMSobre.setBackground(new java.awt.Color(255, 204, 204));
+        jMSobre.setBackground(new java.awt.Color(70, 130, 180));
         jMSobre.setText("Sobre el Sistema");
 
         miVersion.setBackground(new java.awt.Color(255, 204, 204));
+        miVersion.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miVersion.setText("Version");
         jMSobre.add(miVersion);
 
         jmenuBarRestaurante.add(jMSobre);
 
-        mHistorial.setBackground(new java.awt.Color(255, 204, 204));
+        mHistorial.setBackground(new java.awt.Color(70, 130, 180));
         mHistorial.setText("Historial");
         jmenuBarRestaurante.add(mHistorial);
 
+        JMPerfil.setBackground(new java.awt.Color(70, 130, 180));
         JMPerfil.setText("Perfil");
 
         miPerfil.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miPerfil.setBackground(new java.awt.Color(173, 216, 230));
+        miPerfil.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miPerfil.setText("Información");
         miPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,11 +267,15 @@ public class FrmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
