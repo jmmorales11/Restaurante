@@ -45,12 +45,12 @@ public class FrmMenu extends javax.swing.JFrame {
         jmenuBarRestaurante = new javax.swing.JMenuBar();
         jMAyuda = new javax.swing.JMenu();
         miPreguntas = new javax.swing.JMenuItem();
-        miSalir = new javax.swing.JMenuItem();
         jMSobre = new javax.swing.JMenu();
         miVersion = new javax.swing.JMenuItem();
         mHistorial = new javax.swing.JMenu();
         JMPerfil = new javax.swing.JMenu();
         miPerfil = new javax.swing.JMenuItem();
+        miCerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,8 +159,7 @@ public class FrmMenu extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
                         .addGap(37, 37, 37)
-                        .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtNumeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +223,6 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMAyuda.add(miPreguntas);
 
-        miSalir.setBackground(new java.awt.Color(173, 216, 230));
-        miSalir.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
-        miSalir.setText("Salir");
-        jMAyuda.add(miSalir);
-
         jmenuBarRestaurante.add(jMAyuda);
 
         jMSobre.setBackground(new java.awt.Color(70, 130, 180));
@@ -258,6 +252,11 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         JMPerfil.add(miPerfil);
+
+        miCerrarSesion.setBackground(new java.awt.Color(173, 216, 230));
+        miCerrarSesion.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        miCerrarSesion.setText("Cerrar Sesión");
+        JMPerfil.add(miCerrarSesion);
 
         jmenuBarRestaurante.add(JMPerfil);
 
@@ -353,7 +352,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMAyuda;
-    private javax.swing.JMenu jMSobre;
+    public javax.swing.JMenu jMSobre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlBebida;
     private javax.swing.JLabel jlEntrada;
@@ -361,10 +360,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jlPostre;
     private javax.swing.JMenuBar jmenuBarRestaurante;
     public javax.swing.JMenu mHistorial;
+    public javax.swing.JMenuItem miCerrarSesion;
     public javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miPreguntas;
-    private javax.swing.JMenuItem miSalir;
-    private javax.swing.JMenuItem miVersion;
+    public javax.swing.JMenuItem miVersion;
     public javax.swing.JTextField txtNumeroPedido;
     // End of variables declaration//GEN-END:variables
 }
