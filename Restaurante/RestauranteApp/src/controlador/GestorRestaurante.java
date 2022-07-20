@@ -26,6 +26,7 @@ import vista.FrmMenu;
 import vista.FrmPerfil;
 import vista.FrmPostre;
 import vista.FrmVerIngredientes;
+import vista.FrmVersion;
 import vista.FrmVisualisarInformacionPedido;
 
 public class GestorRestaurante {
@@ -47,6 +48,7 @@ public class GestorRestaurante {
         PlatoDAO plato = new PlatoDAO ();
         FrmFuerte frmFuerte= new FrmFuerte();
         FrmPostre frmPostre= new FrmPostre();
+        FrmVersion frmVersion= new FrmVersion();
         ControladorRestaurante c = new ControladorRestaurante(
                 menuPrimario, 
                 login, 
@@ -62,7 +64,8 @@ public class GestorRestaurante {
                 plato,
                 entradas,
                 frmFuerte,
-                frmPostre
+                frmPostre,
+                frmVersion
         );
         menuPrimario.setVisible(true);
 

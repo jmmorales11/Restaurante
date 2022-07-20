@@ -237,7 +237,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnConfirmar;
     public javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -29,6 +29,7 @@ import vista.FrmMenu;
 import vista.FrmPerfil;
 import vista.FrmRegistrar;
 import vista.FrmVerIngredientes;
+import vista.FrmVersion;
 import vista.FrmVisualisarInformacionPedido;
 
 public class ControladorRestaurante implements ActionListener, KeyListener  {
@@ -50,6 +51,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     FrmVisualisarInformacionPedido objetoVistaFactura;
     PlatoDAO platodao;
     Plato pla= new Plato();
+    FrmVersion objetoVersion;
 
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
@@ -66,11 +68,13 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             PlatoDAO plato,
             FrmEntradas frmEntradas,
             FrmFuerte frmFuertes,
-            FrmPostre frmPostre
+            FrmPostre frmPostre,
+            FrmVersion frmVersion
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
         menu2.miLogin.addActionListener(this);
+        menu2.miSalir.addActionListener(this);
         
         this.objetoLogin = frmLogin;
         this.objetoLogin.btnLogin.addActionListener(this);
@@ -101,6 +105,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.menu.mHistorial.addActionListener(this);
         this.menu.txtNumeroPedido.addKeyListener(this);
         this.menu.btnConfirmacionPedidos.addActionListener(this);
+        this.menu.miCerrarSesion.addActionListener(this);
+        this.menu.miVersion.addActionListener(this);
         
         this.objetoDAO = usuarioDao;
         
@@ -136,9 +142,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
         this.objetoVistaConfirmacion.btnEliminar.addActionListener(this);
         this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
+        this.objetoVistaConfirmacion.btnRegresar.addActionListener(this);
         
        this.objetoVistaFactura = factura;
        this.objetoVistaFactura.btnVerIngredientes.addActionListener(this);
+       this.objetoVistaFactura.btnMenu.addActionListener(this);
        
        this.objetoVistaIngredientes = ingrediente ;
         this.platodao= plato;
@@ -179,12 +187,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaPostre.txtCatidadEspumilla.addKeyListener(this);
         this.objetoVistaPostre.txtPedidoPostre.addKeyListener(this);
         this.objetoVistaPostre.btnRegresar.addActionListener(this);
+        
+        this.objetoVersion = frmVersion;
+        this.objetoVersion.btnMenu.addActionListener(this);
     }
-
-    
-    
-   
-    
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
         tablaD.setModel(modeloT);
@@ -229,6 +235,9 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu2.setVisible(false);
             objetoRegistrar.setVisible(true);
         }
+        if(e.getSource()==menu2.miSalir){
+            this.menu2.dispose();
+        }
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -259,7 +268,18 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                     menu.setVisible(true);
                 }
             }
-        
+        if(e.getSource()==objetoLogin.btnCancelar){
+            objetoLogin.setVisible(false);
+            menu2.setVisible(true);
+        }
+        if(e.getSource()==objetoVersion.btnMenu){
+            objetoVersion.setVisible(false);
+            menu2.setVisible(true);
+        }
+        if(e.getSource()==objetoVistaConfirmacion.btnRegresar){
+            objetoVistaConfirmacion.setVisible(false);
+            menu.setVisible(true);
+          }
         if(e.getSource()==menu.miPerfil){
             menu.setVisible(false);
             objetoPerfil.setVisible(true);
@@ -288,6 +308,15 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu.setVisible(true);
         }
 
+        if(e.getSource()==menu.miVersion){
+            menu.setVisible(false);
+            objetoVersion.setVisible(true);
+        }
+        
+        if(e.getSource()==menu.miCerrarSesion){
+            menu.setVisible(false);
+            menu2.setVisible(true);
+        }
         
         if(e.getSource()==objetoPerfil.btnModificar){
             String nombre = objetoPerfil.txtNombre.getText();
@@ -606,7 +635,12 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoVistaIngredientes.setVisible(true);
             objetoVistaFactura.setVisible(false);
         }
-    }}
+    }
+    if(e.getSource()==objetoVistaFactura.btnMenu){
+        objetoVistaFactura.setVisible(false);
+        menu.setVisible(true);
+    }
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {

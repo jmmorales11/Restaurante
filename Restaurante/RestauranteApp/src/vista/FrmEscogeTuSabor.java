@@ -31,6 +31,7 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
+        miSalir = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         miRegistrarse = new javax.swing.JMenuItem();
         miLogin = new javax.swing.JMenuItem();
@@ -60,12 +61,23 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
 
         jMenu4.setText("Escoge tu sabor app");
         jMenu4.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+
+        miSalir.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        miSalir.setText("Salir");
+        miSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSalirActionPerformed(evt);
+            }
+        });
+        jMenu4.add(miSalir);
+
         jMenuBar2.add(jMenu4);
 
         jMenu5.setText("Usuario");
         jMenu5.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
 
         miRegistrarse.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miRegistrarse.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miRegistrarse.setText("Registrarse");
         miRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +86,7 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
         });
         jMenu5.add(miRegistrarse);
 
+        miLogin.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         miLogin.setText("Iniciar Sesión");
         miLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +120,10 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
     private void miRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRegistrarseActionPerformed
         
     }//GEN-LAST:event_miRegistrarseActionPerformed
+
+    private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,5 +169,6 @@ public class FrmEscogeTuSabor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public javax.swing.JMenuItem miLogin;
     public javax.swing.JMenuItem miRegistrarse;
+    public javax.swing.JMenuItem miSalir;
     // End of variables declaration//GEN-END:variables
 }
