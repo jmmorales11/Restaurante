@@ -48,6 +48,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMSobre = new javax.swing.JMenu();
         miVersion = new javax.swing.JMenuItem();
         mHistorial = new javax.swing.JMenu();
+        jmHistorial = new javax.swing.JMenuItem();
         JMPerfil = new javax.swing.JMenu();
         miPerfil = new javax.swing.JMenuItem();
         miCerrarSesion = new javax.swing.JMenuItem();
@@ -236,7 +237,16 @@ public class FrmMenu extends javax.swing.JFrame {
         jmenuBarRestaurante.add(jMSobre);
 
         mHistorial.setBackground(new java.awt.Color(70, 130, 180));
-        mHistorial.setText("Historial");
+        mHistorial.setText("Informacion");
+
+        jmHistorial.setText("Historial");
+        jmHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmHistorialActionPerformed(evt);
+            }
+        });
+        mHistorial.add(jmHistorial);
+
         jmenuBarRestaurante.add(mHistorial);
 
         JMPerfil.setBackground(new java.awt.Color(70, 130, 180));
@@ -304,6 +314,10 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmacionPedidosActionPerformed
 
+    private void jmHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmHistorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmHistorialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,8 +372,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jlEntrada;
     private javax.swing.JLabel jlFuerte;
     private javax.swing.JLabel jlPostre;
+    public javax.swing.JMenuItem jmHistorial;
     private javax.swing.JMenuBar jmenuBarRestaurante;
-    public javax.swing.JMenu mHistorial;
+    private javax.swing.JMenu mHistorial;
     public javax.swing.JMenuItem miCerrarSesion;
     public javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miPreguntas;

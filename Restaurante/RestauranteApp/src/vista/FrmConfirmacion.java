@@ -38,11 +38,14 @@ public class FrmConfirmacion extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnRegresar = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jlPedidos.setBackground(new java.awt.Color(249, 235, 234));
         jlPedidos.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         jlPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -55,6 +58,8 @@ public class FrmConfirmacion extends javax.swing.JFrame {
 
             }
         ));
+        jlPedidos.setGridColor(new java.awt.Color(255, 255, 255));
+        jlPedidos.setSelectionBackground(new java.awt.Color(205, 97, 85));
         jScrollPane1.setViewportView(jlPedidos);
 
         jLabel2.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
@@ -121,7 +126,7 @@ public class FrmConfirmacion extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,41 +138,52 @@ public class FrmConfirmacion extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(249, 235, 234));
 
-        btnRegresar.setBackground(new java.awt.Color(230, 176, 170));
+        btnRegresar.setBackground(new java.awt.Color(249, 235, 234));
         btnRegresar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         btnRegresar.setText("Cancelar");
-        btnRegresar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnRegresar.setBorder(null);
 
-        btnConfirmar.setBackground(new java.awt.Color(230, 176, 170));
+        btnConfirmar.setBackground(new java.awt.Color(249, 235, 234));
         btnConfirmar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         btnConfirmar.setText("Aceptar");
-        btnConfirmar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnConfirmar.setBorder(null);
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
             }
         });
 
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator2)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(btnRegresar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(28, 28, 28)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(32, 32, 32)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -245,6 +261,8 @@ public class FrmConfirmacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTable jlPedidos;
     public javax.swing.JTextField txtBuscarPedidoconfirmacion;
     public javax.swing.JTextField txtNombreCliente;

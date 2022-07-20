@@ -28,6 +28,7 @@ import vista.FrmPostre;
 import vista.FrmVerIngredientes;
 import vista.FrmVersion;
 import vista.FrmVisualisarInformacionPedido;
+import vista.FrmhistorialOrdenes;
 
 public class GestorRestaurante {
     //Camilo 
@@ -49,6 +50,7 @@ public class GestorRestaurante {
         FrmFuerte frmFuerte= new FrmFuerte();
         FrmPostre frmPostre= new FrmPostre();
         FrmVersion frmVersion= new FrmVersion();
+        FrmhistorialOrdenes frmhistorialOrdenes= new FrmhistorialOrdenes();
         ControladorRestaurante c = new ControladorRestaurante(
                 menuPrimario, 
                 login, 
@@ -65,7 +67,8 @@ public class GestorRestaurante {
                 entradas,
                 frmFuerte,
                 frmPostre,
-                frmVersion
+                frmVersion,
+                frmhistorialOrdenes
         );
         menuPrimario.setVisible(true);
 

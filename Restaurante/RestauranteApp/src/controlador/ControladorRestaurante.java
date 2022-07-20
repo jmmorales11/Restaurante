@@ -1,4 +1,5 @@
-//Este sirve 19/7/2022  11:55
+//Este sirve 20/07/2022
+//11:53
 
 package controlador;
 
@@ -31,6 +32,7 @@ import vista.FrmRegistrar;
 import vista.FrmVerIngredientes;
 import vista.FrmVersion;
 import vista.FrmVisualisarInformacionPedido;
+import vista.FrmhistorialOrdenes;
 
 public class ControladorRestaurante implements ActionListener, KeyListener  {
     Pedido ped= new Pedido();
@@ -52,7 +54,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     PlatoDAO platodao;
     Plato pla= new Plato();
     FrmVersion objetoVersion;
-
+    FrmhistorialOrdenes historial;
+//inicializamos 
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
             FrmLogin frmLogin, 
@@ -69,7 +72,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             FrmEntradas frmEntradas,
             FrmFuerte frmFuertes,
             FrmPostre frmPostre,
-            FrmVersion frmVersion
+            FrmVersion frmVersion,
+            FrmhistorialOrdenes frmhistorialOrdenes
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
@@ -102,11 +106,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.menu.btnEntrada.addActionListener(this);
         this.menu.btnFuerte.addActionListener(this);
         this.menu.btnPostre.addActionListener(this);
-        this.menu.mHistorial.addActionListener(this);
         this.menu.txtNumeroPedido.addKeyListener(this);
         this.menu.btnConfirmacionPedidos.addActionListener(this);
         this.menu.miCerrarSesion.addActionListener(this);
         this.menu.miVersion.addActionListener(this);
+        this.menu.jmHistorial.addActionListener(this);
         
         this.objetoDAO = usuarioDao;
         
@@ -135,9 +139,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         
         
         this.pedDAO = pedidosDAO;
-        
 
-        
         this.objetoVistaConfirmacion = confirmacion;
         this.objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.addKeyListener(this);
         this.objetoVistaConfirmacion.btnEliminar.addActionListener(this);
@@ -151,6 +153,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
        this.objetoVistaIngredientes = ingrediente ;
         this.platodao= plato;
         this.objetoVistaIngredientes.txaIngredientes.addKeyListener(this);
+        this.objetoVistaIngredientes.btnregresar.addActionListener(this);
 
         
         
@@ -190,6 +193,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         
         this.objetoVersion = frmVersion;
         this.objetoVersion.btnMenu.addActionListener(this);
+
+        this.historial= frmhistorialOrdenes;
+        this.historial.btnMenu.addActionListener(this);
+
     }
      public void llenarTabla(JTable tablaD){
         DefaultTableModel modeloT= new DefaultTableModel();
@@ -235,9 +242,15 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu2.setVisible(false);
             objetoRegistrar.setVisible(true);
         }
+        if (e.getSource()==objetoVistaIngredientes.btnregresar){
+           objetoVistaIngredientes.setVisible(false);
+           objetoVistaFactura.setVisible(true);
+        }
+//Cerrar todo
         if(e.getSource()==menu2.miSalir){
             this.menu2.dispose();
         }
+//Resgistrar se agregan los datos del no usuario, usamos la clase Usuario para usar los metodos de usauarioDAO
         if(e.getSource()==objetoRegistrar.btnRegistrar){
                 String nombre= objetoRegistrar.txtNombre.getText();
                 String apellido= objetoRegistrar.txtApellido.getText();
@@ -256,7 +269,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoRegistrar.setVisible(false);
             objetoLogin.setVisible(true);
         }
-
+//Valida el id y contraseña en la base de datos, 
         if(e.getSource()== objetoLogin.btnLogin){
                 String id = "";
                 String contraseña = "";
@@ -266,7 +279,11 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                     objetoUsuario = objetoDAO.obtenerUsuario(id);
                     objetoLogin.setVisible(false);
                     menu.setVisible(true);
-                }
+                }else{
+                JOptionPane.showMessageDialog(null, "Id o contraseña\n  INCORRECTA");
+                    }
+                objetoLogin.txtID.setText("");
+                objetoLogin.txtContraseña.setText("");
             }
         if(e.getSource()==objetoLogin.btnCancelar){
             objetoLogin.setVisible(false);
@@ -274,12 +291,13 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         }
         if(e.getSource()==objetoVersion.btnMenu){
             objetoVersion.setVisible(false);
-            menu2.setVisible(true);
+            menu.setVisible(true);
         }
         if(e.getSource()==objetoVistaConfirmacion.btnRegresar){
             objetoVistaConfirmacion.setVisible(false);
             menu.setVisible(true);
           }
+//Se muestra los campo llenos de nuestro usuario 
         if(e.getSource()==menu.miPerfil){
             menu.setVisible(false);
             objetoPerfil.setVisible(true);
@@ -317,7 +335,15 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu.setVisible(false);
             menu2.setVisible(true);
         }
-        
+        if(e.getSource()== menu.jmHistorial){
+           menu.setVisible(false);
+           historial.setVisible(true);
+        }
+        if(e.getSource()==historial.btnMenu){
+            historial.setVisible(false);
+            menu.setVisible(true);
+        }       
+        //permite modificar el perfil
         if(e.getSource()==objetoPerfil.btnModificar){
             String nombre = objetoPerfil.txtNombre.getText();
             String apellido = objetoPerfil.txtApellido.getText();
@@ -354,7 +380,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoPerfil.txtAño.setEditable(true);
         }
         
-
+// llenamos la tabla con los pedidos
         if(e.getSource()==menu.btnConfirmacionPedidos){
             menu.setVisible(false);
             objetoVistaConfirmacion.setVisible(true);
@@ -380,7 +406,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setEditable(false);
 
         }
-
+// se escogen los productos
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
             objetoVistaBebidas.setVisible(true);

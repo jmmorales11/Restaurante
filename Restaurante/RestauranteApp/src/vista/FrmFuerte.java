@@ -51,6 +51,7 @@ public class FrmFuerte extends javax.swing.JFrame {
         btnAgregarFuerte = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnRegresar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -135,9 +136,8 @@ public class FrmFuerte extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Cooper Black", 0, 10)); // NOI18N
         jLabel11.setText("Precio: $");
 
-        btnAgregarFuerte.setBackground(new java.awt.Color(169, 204, 227));
+        btnAgregarFuerte.setBackground(new java.awt.Color(176, 196, 222));
         btnAgregarFuerte.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        btnAgregarFuerte.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarFuerte.setText("Agregar");
         btnAgregarFuerte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,11 +264,10 @@ public class FrmFuerte extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(176, 196, 222));
 
-        btnRegresar.setBackground(new java.awt.Color(169, 204, 227));
+        btnRegresar.setBackground(new java.awt.Color(176, 196, 222));
         btnRegresar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setText("Regresar");
-        btnRegresar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnRegresar.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -278,12 +277,15 @@ public class FrmFuerte extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -329,8 +331,7 @@ public class FrmFuerte extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -413,6 +414,7 @@ public class FrmFuerte extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel jlArrosPrecio;
     public javax.swing.JLabel jlChurrascoPrecio;
     public javax.swing.JLabel jlEncebollado;

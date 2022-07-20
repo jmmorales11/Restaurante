@@ -78,6 +78,7 @@ public class FrmVisualisarInformacionPedido extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jtFactura.setBackground(new java.awt.Color(224, 242, 241));
         jtFactura.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         jtFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +91,8 @@ public class FrmVisualisarInformacionPedido extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtFactura.setGridColor(new java.awt.Color(204, 204, 204));
+        jtFactura.setSelectionBackground(new java.awt.Color(102, 153, 255));
         jScrollPane2.setViewportView(jtFactura);
 
         kgflkd.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
