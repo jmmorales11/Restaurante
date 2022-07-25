@@ -151,6 +151,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         this.objetoVistaConfirmacion.btnEliminar.addActionListener(this);
         this.objetoVistaConfirmacion.btnConfirmar.addActionListener(this);
         this.objetoVistaConfirmacion.btnRegresar.addActionListener(this);
+        this.objetoVistaConfirmacion.btnActualizar.addActionListener(this);
         
        this.objetoVistaFactura = factura;
        this.objetoVistaFactura.btnVerIngredientes.addActionListener(this);
@@ -257,6 +258,20 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         objetoPerfil.txtAño.setEditable(true);
         
     }
+      public void limpiarRegistrar(){
+          objetoRegistrar.txtNombre.setText("");
+          objetoRegistrar.txtApellido.setText("");
+          objetoRegistrar.txtID.setText("");
+          objetoRegistrar.txtContraseña.setText("");
+          objetoRegistrar.txtRepetirContraseña.setText("");
+          objetoRegistrar.txtEmail.setText("");
+          objetoRegistrar.txtNumeroCelular.setText("");
+          objetoRegistrar.txtDia.setText("");
+          objetoRegistrar.txtMes.setText("");
+          objetoRegistrar.txtAño.setText("");
+          objetoRegistrar.txtID.setEditable(true);
+          objetoRegistrar.txtNumeroCelular.setEditable(true);
+      }
         @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==menu2.miLogin){
@@ -266,6 +281,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         if(e.getSource()==menu2.miRegistrarse){
             menu2.setVisible(false);
             objetoRegistrar.setVisible(true);
+            
+            
         }
         if (e.getSource()==objetoVistaIngredientes.btnregresar){
            objetoVistaIngredientes.setVisible(false);
@@ -288,6 +305,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 String año= objetoRegistrar.txtAño.getText();
                 Usuario objetoUsuario= new Usuario(nombre,apellido,id,contraseña,email,numeroCelular,dia,mes,año);
                 objetoDAO.insertarUsuario(objetoUsuario);
+                limpiarRegistrar();
                 
         }
         if(e.getSource()==objetoRegistrar.btnLogin){
@@ -319,6 +337,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             menu.setVisible(true);
         }
         if(e.getSource()==objetoVistaConfirmacion.btnRegresar){
+            menu.txtNumeroPedido.setText("");
             objetoVistaConfirmacion.setVisible(false);
             menu.setVisible(true);
           }
@@ -432,6 +451,28 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setEditable(false);
 
         }
+        if(e.getSource()==objetoVistaConfirmacion.btnActualizar){
+            objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setText(menu.txtNumeroPedido.getText());
+            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+            DefaultTableModel modeloT= new DefaultTableModel();
+            objetoVistaConfirmacion.jlPedidos.setModel(modeloT);
+            modeloT.addColumn("Descripcion");
+            modeloT.addColumn("Cantidad");
+            modeloT.addColumn("Precio");
+            modeloT.addColumn("Total");
+            Object [] columna= new Object[4];
+            int numReg= pedDAO.buscarPedido(pedido).size();
+            for(int i=0;i<numReg;i++){
+                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+                System.out.println(ped);
+                columna[0]=ped.getNombrePedido();
+                columna[1]=ped.getCantidad();
+                columna[2]= ped.getPrecio();
+                columna[3]= ped.getTotal();
+                modeloT.addRow(columna);
+            }
+            objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.setEditable(false);
+        }
 // se escogen los productos
         if(e.getSource()==menu.btnBebidas){
             menu.setVisible(false);
@@ -486,9 +527,16 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
                 
                 pedDAO.insertarPedidos(objPed);
             }
+            
         }
         
         if(e.getSource()==objetoVistaBebidas.btnRegresar){
+            objetoVistaBebidas.rbCoca.setSelected(false);
+            objetoVistaBebidas.rbFanta.setSelected(false);
+            objetoVistaBebidas.rbSprite.setSelected(false);
+            objetoVistaBebidas.txtCoca.setText("");
+            objetoVistaBebidas.txtFanta.setText("");
+            objetoVistaBebidas.txtSprite.setText("");
             objetoVistaBebidas.setVisible(false);
             menu.setVisible(true);
         }
@@ -522,6 +570,12 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }
         }
         if(e.getSource()==objetoVistaPostre.btnRegresar){
+            objetoVistaPostre.rbDulceGuayaba.setSelected(false);
+            objetoVistaPostre.rbCoco.setSelected(false);
+            objetoVistaPostre.rbEspumillaNaranjilla.setSelected(false);
+            objetoVistaPostre.txtCantidadCoco.setText("");
+            objetoVistaPostre.txtCatidadEspumilla.setText("");
+            objetoVistaPostre.txtCantidadDGuayaba.setText("");
             objetoVistaPostre.setVisible(false);
             menu.setVisible(true);
         }
@@ -553,6 +607,12 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }
         }
         if(e.getSource()==objetoVistaFuerte.btnRegresar){
+            objetoVistaFuerte.rbArroz.setSelected(false);
+            objetoVistaFuerte.rbChurrasco.setSelected(false);
+            objetoVistaFuerte.rbEncebollado.setSelected(false);
+            objetoVistaFuerte.txtCantidadArroz.setText("");
+            objetoVistaFuerte.txtCantidadChurrasco.setText("");
+            objetoVistaFuerte.txtCantidadEncebollado.setText("");
             objetoVistaFuerte.setVisible(false);
             menu.setVisible(true);
         }
@@ -584,6 +644,13 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             }
         }
         if(e.getSource()==objetoVistaEntradas.btnRegresarEntrada){
+            objetoVistaEntradas.rbBolonVerde.setSelected(false);
+            objetoVistaEntradas.rbEmpanadaMorocho.setSelected(false);
+            objetoVistaEntradas.rbPanYuca.setSelected(false);
+            objetoVistaEntradas.txtCantidadBolon.setText("");
+            objetoVistaEntradas.txtCantidadEmpanadasMorocho.setText("");
+            objetoVistaEntradas.txtCantidadPan.setText("");
+            objetoVistaEntradas.setVisible(false);
             objetoVistaEntradas.setVisible(false);
             menu.setVisible(true);
         }
@@ -594,7 +661,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             ArrayList<String> lista= new ArrayList();
             String nom="";
             if(filaInicio>0){
-                for(int i=0;1<numFS;i++){
+                for(int i=-1;1<numFS;i++){
                     nom=String.valueOf(objetoVistaConfirmacion.jlPedidos.getValueAt(i+filaInicio,0 ));
                     lista.add(nom);
                 }
@@ -653,8 +720,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         if(e.getSource()==objetoVistaFactura.btnVerIngredientes){
             
             String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();           
-           objetoVistaIngredientes.LabelCliente.setText(objetoVistaFactura.nombreCliente.getText());
-           objetoVistaIngredientes.LabelNumeroPedido.setText(objetoVistaFactura.numeroPedido.getText());
+            objetoVistaIngredientes.LabelCliente.setText(objetoVistaFactura.nombreCliente.getText());
+            objetoVistaIngredientes.LabelNumeroPedido.setText(objetoVistaFactura.numeroPedido.getText());
             int numReg= pedDAO.buscarPedido(pedido).size();
             for(int i=0;i<numReg;i++){
                 ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
@@ -700,6 +767,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         }
     }
     if(e.getSource()==objetoVistaFactura.btnMenu){
+        menu.txtNumeroPedido.setText("");
         objetoVistaFactura.setVisible(false);
         menu.setVisible(true);
     }
