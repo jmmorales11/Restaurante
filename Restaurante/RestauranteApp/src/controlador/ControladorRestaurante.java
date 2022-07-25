@@ -159,7 +159,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
        
        this.objetoVistaIngredientes = ingrediente ;
         this.platodao= plato;
-        this.objetoVistaIngredientes.txaIngredientes.addKeyListener(this);
+        
         this.objetoVistaIngredientes.btnregresar.addActionListener(this);
 
         
@@ -718,52 +718,30 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             
         }
         if(e.getSource()==objetoVistaFactura.btnVerIngredientes){
-            
-            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();           
-            objetoVistaIngredientes.LabelCliente.setText(objetoVistaFactura.nombreCliente.getText());
-            objetoVistaIngredientes.LabelNumeroPedido.setText(objetoVistaFactura.numeroPedido.getText());
-            int numReg= pedDAO.buscarPedido(pedido).size();
-            for(int i=0;i<numReg;i++){
-                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
+           objetoVistaIngredientes.setVisible(true);
+           objetoVistaFactura.setVisible(false);
+           objetoVistaIngredientes.LabelCliente.setText(objetoVistaFactura.nombreCliente.getText());
+           objetoVistaIngredientes.LabelNumeroPedido.setText(objetoVistaFactura.numeroPedido.getText());   
+           String pedido=objetoVistaFactura.numeroPedido.getText();
+           ArrayList<Plato> listPe = new ArrayList();
+           DefaultTableModel modeloT= new DefaultTableModel();
+        objetoVistaIngredientes.jIngredientes.setModel(modeloT);
+        int k =0; 
+        modeloT.addColumn("Nombre del plato ");
+        modeloT.addColumn("Ingredientes");
+        int numReg3= pedDAO.buscarPedido(pedido).size();
+        listPe = platodao.obtenerPlato();        
+        Object[] columna = new Object[2];
+            for(int i=0;i<numReg3;i++){
+                ped= (Pedido) pedDAO.buscarPedido(objetoVistaFactura.numeroPedido.getText()).get(i);
                 System.out.println(ped);
-                int numRe= platodao.buscarPlato(ped.getNombrePedido()).size();
-                for(int j=0;i<numRe;j++){
-                pla= (Plato) platodao.buscarPlato(ped.getNombrePedido()).get(i);
-                objetoVistaIngredientes.txaIngredientes.setText(pla.getNombre());
-                objetoVistaIngredientes.txaIngredientes.setEditable(false);
-//        String pedido= objetoVistaVisualisar.txtOrden.getText();
-//            objetoVistaVering= new FrmVerIngredientes();
-//            objetoVistaVering.LabelCliente.setText(objetoVistaVisualisar.txtNombreF.getText());
-//            objetoVistaVering.LabelNumPedido.setText(objetoVistaVisualisar.txtOrden.getText());
-//            objetoVistaVisualisar.setVisible(false);
-//           DefaultTableModel modeloT= new DefaultTableModel();
-//            objetoVistaVering.jtVerIn.setModel(modeloT);
-//            modeloT.addColumn("Nombre del plato");
-//            modeloT.addColumn("Ingrediente");
-//            modeloT.addColumn("Cantidad");
-//            modeloT.addColumn("Unidades");
-//            modeloT.addColumn("total de ingredientes");
-//            Object [] columna= new Object[5];
-//            int numReg= pedDAO.buscarPedido(pedido).size();
-//            for(int i=0;i<numReg;i++){
-//                ped= (Pedido) pedDAO.buscarPedido(pedido).get(i);
-////                System.out.println(ped);
-////                int numRe= platoDAO.buscarPlato(ped.getNombrePedido()).size();
-////                for(int j=0;i<numRe;j++){
-////                    plato= (Plato) platoDAO.buscarPlato(ped.getNombrePedido()).get(i);
-////                    columna[0]= plato.getNombre();
-////                    columna[1]=plato.getIngredientes();
-////                    columna[2]=ped.getCantidad();
-//////                    columna[1]=;
-//////                    columna[1]=;
-//////                    ped.getNombrePedido() = " ";
-////                    }
-//                modeloT.addRow(columna);
-//            }
-//            objetoVistaVering.setVisible(true);
-        }
-            objetoVistaIngredientes.setVisible(true);
-            objetoVistaFactura.setVisible(false);
+              pla = platodao.buscarPlato(ped.nombrePedido);
+               System.out.println("Lista buscada "+listPe.size());
+                System.out.println("pla= "+pla);
+                 columna[0]=pla.getNombre();
+                 columna[1]=pla.getIngredientes();             
+                modeloT.addRow(columna);     
+        
         }
     }
     if(e.getSource()==objetoVistaFactura.btnMenu){
