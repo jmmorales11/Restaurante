@@ -1,5 +1,5 @@
-//Este sirve 20/07/2022
-//11:53
+//Este sirve 24/07/2022
+//21:55
 
 package controlador;
 
@@ -20,6 +20,8 @@ import vista.FrmFuerte;
 import vista.FrmPostre;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Cliente;
+import modelo.ClienteDAO;
 import modelo.Plato;
 import modelo.PlatoDAO;
 import modelo.Usuario;
@@ -55,6 +57,9 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
     Plato pla= new Plato();
     FrmVersion objetoVersion;
     FrmhistorialOrdenes historial;
+    Cliente  cliente1;
+    ClienteDAO clienteDAO;
+    Cliente objetoCliente= new Cliente(); 
 //inicializamos 
     public ControladorRestaurante(
             FrmEscogeTuSabor vista, 
@@ -73,7 +78,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             FrmFuerte frmFuertes,
             FrmPostre frmPostre,
             FrmVersion frmVersion,
-            FrmhistorialOrdenes frmhistorialOrdenes
+            FrmhistorialOrdenes frmhistorialOrdenes,
+            ClienteDAO clienteDAO
     ){
         menu2= vista;
         menu2.miRegistrarse.addActionListener(this);
@@ -193,9 +199,10 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         
         this.objetoVersion = frmVersion;
         this.objetoVersion.btnMenu.addActionListener(this);
-
+        this.clienteDAO=clienteDAO;
         this.historial= frmhistorialOrdenes;
         this.historial.btnMenu.addActionListener(this);
+        
 
     }
      public void llenarTabla(JTable tablaD){
@@ -214,6 +221,24 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             modeloT.addRow(columna);      
         }
     }
+     
+     public void llenarTablaCliente (JTable tabla){
+        DefaultTableModel modeloT= new DefaultTableModel();
+        tabla.setModel(modeloT);
+        modeloT.addColumn("Numero pedido");
+        modeloT.addColumn("Nombre del cliente");
+        modeloT.addColumn("Total del pedido");
+        Object[] columna = new Object[3];//declaro cuants columnas quiero
+        int numReg= clienteDAO.obtenerCliente().size();
+         System.out.println("NUMERO DE TAMAÑO"+numReg);
+        for( int i=0; i<numReg;i++){
+            objetoCliente =(Cliente)clienteDAO.obtenerCliente().get(i);
+            columna[0]= objetoCliente.getnPedido();
+            columna[1]= objetoCliente.getNombreCliente();
+            columna[2]= objetoCliente.getPrecioTotal();
+            modeloT.addRow(columna);      
+        }
+     }
       public void limpiarElementos()
     {
         objetoPerfil.txtNombre.setText("");
@@ -338,6 +363,7 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         if(e.getSource()== menu.jmHistorial){
            menu.setVisible(false);
            historial.setVisible(true);
+           llenarTablaCliente(historial.jtHistorial);
         }
         if(e.getSource()==historial.btnMenu){
             historial.setVisible(false);
@@ -586,6 +612,8 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
         }
         if(e.getSource()==objetoVistaConfirmacion.btnConfirmar){
             float total=0;
+            
+            
            String pedido=objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
            objetoVistaFactura.nombreCliente.setText(objetoVistaConfirmacion.txtNombreCliente.getText());
            objetoVistaFactura.numeroPedido.setText(objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText());
@@ -611,6 +639,15 @@ public class ControladorRestaurante implements ActionListener, KeyListener  {
             objetoVistaFactura.labelTotal.setText(Float.toString(total));
             objetoVistaConfirmacion.setVisible(false);
             objetoVistaFactura.setVisible(true);
+            //___________
+            //LlenarTabla
+           String numeroPed= objetoVistaConfirmacion.txtBuscarPedidoconfirmacion.getText();
+           String nombreCli= objetoVistaConfirmacion.txtNombreCliente.getText();
+           String totalCliente = objetoVistaFactura.labelTotal.getText();
+           Cliente cliente1= new Cliente(numeroPed,nombreCli,totalCliente);
+           clienteDAO.insertarCliente(cliente1);
+                       
+            //____________
             
         }
         if(e.getSource()==objetoVistaFactura.btnVerIngredientes){

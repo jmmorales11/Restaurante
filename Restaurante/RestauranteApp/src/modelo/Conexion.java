@@ -6,11 +6,12 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 
 public class Conexion {
-        DB baseDatos;
+    DB baseDatos;
     DBCollection coleccion;
     DBCollection coleccionPedido;
     DBCollection coleccionPlato;
     DBCollection coleccionIngre;
+    DBCollection coleccionCliente;
     
     //Constructor
     public Conexion(){
@@ -20,6 +21,7 @@ public class Conexion {
         coleccionPedido=baseDatos.getCollection("Pedidos");
         coleccionPlato=baseDatos.getCollection("Plato");
         coleccionIngre=baseDatos.getCollection("Ingrediente");
+        coleccionCliente=baseDatos.getCollection("Cliente");
         System.out.println("Conexion aBD ok");
     }
 }

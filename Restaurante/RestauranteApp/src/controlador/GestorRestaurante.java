@@ -1,5 +1,6 @@
 
 package controlador;
+import modelo.ClienteDAO;
 import modelo.Conexion;
 import modelo.Ingrediente;
 import modelo.PedidosDAO;
@@ -51,6 +52,7 @@ public class GestorRestaurante {
         FrmPostre frmPostre= new FrmPostre();
         FrmVersion frmVersion= new FrmVersion();
         FrmhistorialOrdenes frmhistorialOrdenes= new FrmhistorialOrdenes();
+        ClienteDAO clienteDAO= new ClienteDAO();
         ControladorRestaurante c = new ControladorRestaurante(
                 menuPrimario, 
                 login, 
@@ -68,7 +70,8 @@ public class GestorRestaurante {
                 frmFuerte,
                 frmPostre,
                 frmVersion,
-                frmhistorialOrdenes
+                frmhistorialOrdenes,
+                clienteDAO
         );
         menuPrimario.setVisible(true);
 

@@ -30,7 +30,7 @@ public class FrmhistorialOrdenes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         nomUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtHistorial = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -57,9 +57,9 @@ public class FrmhistorialOrdenes extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBackground(new java.awt.Color(208, 236, 231));
-        jTable1.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtHistorial.setBackground(new java.awt.Color(208, 236, 231));
+        jtHistorial.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        jtHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -71,8 +71,8 @@ public class FrmhistorialOrdenes extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(20, 143, 119));
-        jScrollPane1.setViewportView(jTable1);
+        jtHistorial.setSelectionBackground(new java.awt.Color(20, 143, 119));
+        jScrollPane1.setViewportView(jtHistorial);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -257,7 +257,7 @@ public class FrmhistorialOrdenes extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jtHistorial;
     private javax.swing.JLabel nomUsuario;
     // End of variables declaration//GEN-END:variables
 }
